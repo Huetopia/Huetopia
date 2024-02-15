@@ -1,75 +1,63 @@
-import { useState, useEffect } from "react";
-import "./App.css";
-import OpenAI from "openai";
-import axios from "axios";
+// src/ChatInput.js
+import React, { useState } from 'react';
+import axios from 'axios';
 
-const openaiApiKey = import.meta.env.VITE_OPENAI_API_KEY;
-const openai = new OpenAI(import.meta.env.VITE_OPENAI_API_KEY);
+const baseURL = 'https://api.openai.com/';
 
 function App() {
-  const [theme, setTheme] = useState("");
+  const [theme, setTheme] = useState('');
 
-  const submithandler = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    console.log("Submitting...");
-    //define the prompt
-    const prompt = [
-      {
-        role: "system",
-        content:
-          'You are an assistant tasked with generating color palettes based on user input. Users provide you with a theme, which could be a single word or a description of a scene, and you\'re responsible for finding 5 colors that fit that input. Your response should be in JSON format, structured as follows:\n \n\n{\n  "theme": {\n    "input": "user\'s input",\n    "emoji": "emoji representing the user\'s input"\n  },\n  "colors": [\n    {\n      "hex": "#xxxxxx",\n      "rgb": "rgb(x, x, x)",\n      "description": "Description of what the color represents",\n      "name": "Color name"\n    },\n    {\n      "hex": "#xxxxxx",\n      "rgb": "rgb(x, x, x)",\n      "description": "Description of what the color represents",\n      "name": "Color name"\n    },\n    {\n      "hex": "#xxxxxx",\n      "rgb": "rgb(x, x, x)",\n      "description": "Description of what the color represents",\n      "name": "Color name"\n    },\n    {\n      "hex": "#xxxxxx",\n      "rgb": "rgb(x, x, x)",\n      "description": "Description of what the color represents",\n      "name": "Color name"\n    },\n    {\n      "hex": "#xxxxxx",\n      "rgb": "rgb(x, x, x)",\n      "description": "Description of what the color represents",\n      "name": "Color name"\n    }\n  ]\n}\n',
-      },
-      {
-        role: "user",
-        content: theme, // theme is a variable holding the user's input
-      },
-    ];
-
-    axios
-      .post(
-        openai.chat.completions.create,
-        {
-          model: "gpt-3.5-turbo",
-          messages: prompt,
-          temperature: 1,
-          max_tokens: 300,
-          top_p: 1,
-          frequency_penalty: 0,
-          presence_penalty: 0,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`, // Use openaiApiKey instead of process.env.OPENAI_API_KEY
+    try {
+     
+      const response = await axios.post(baseURL + '/v1/chat/completions', {
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            "role": "system",
+            "content": "You are an assistant tasked with generating color palettes based on user input. Users provide you with a theme, which could be a single word or a description of a scene, along with multiple aspects to consider. You're responsible for finding 5 colors that fit those aspects. Your response should be in JSON format, structured as follows:\n\n{\n  \"theme\": {\n    \"input\": \"user's input\",\n    \"emojis\": [\"emoji1\", \"emoji2\", \"emoji3\"]\n  },\n  \"colors\": [\n    {\n      \"hex\": \"#xxxxxx\",\n      \"rgb\": \"rgb(x, x, x)\",\n      \"description\": \"Description of what the color represents\",\n      \"name\": \"Color name\"\n    },\n    {\n      \"hex\": \"#xxxxxx\",\n      \"rgb\": \"rgb(x, x, x)\",\n      \"description\": \"Description of what the color represents\",\n      \"name\": \"Color name\"\n    },\n    {\n      \"hex\": \"#xxxxxx\",\n      \"rgb\": \"rgb(x, x, x)\",\n      \"description\": \"Description of what the color represents\",\n      \"name\": \"Color name\"\n    },\n    {\n      \"hex\": \"#xxxxxx\",\n      \"rgb\": \"rgb(x, x, x)\",\n      \"description\": \"Description of what the color represents\",\n      \"name\": \"Color name\"\n    },\n    {\n      \"hex\": \"#xxxxxx\",\n      \"rgb\": \"rgb(x, x, x)\",\n      \"description\": \"Description of what the color represents\",\n      \"name\": \"Color name\"\n    }\n  ]\n}"
           },
+          {
+            "role": "user",
+            "content": theme
+          }
+        ],
+        temperature: 1,
+        max_tokens: 300,
+        top_p: 1,
+        frequency_penalty: 0,
+        presence_penalty: 0,
+    
+
+      }, {
+        headers: {
+          'Authorization': `Bearer ${import.meta.env.VITE_APP_OPENAI_API_KEY}`,
+          'Content-Type': 'application/json'
         }
-      )
-      .then((response) => {
-        console.log("Success");
-        console.log(response);
-      })
-      .catch((err) => {
-        console.log(err);
       });
+      
+      console.log(response.data.choices[0].message.content);
+
+      // reset input
+      setTheme('');
+      
+    } catch (error) {
+      console.error("Error during API call: ", error);
+    }
   };
 
   return (
-    <>
-      <form onSubmit={submithandler}>
-        <label>
-          <input
-            type="text"
-            name="theme"
-            value={theme}
-            onChange={(e) => setTheme(e.target.value)}
-          />
-          <button>Submit</button>
-        </label>
-      </form>
-
-      <p></p>
-    </>
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        id="message"
+        value={theme}
+        onChange={(e) => setTheme(e.target.value)}
+      />
+      <button type="submit">Submit</button>
+    </form>
   );
 }
 
