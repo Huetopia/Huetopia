@@ -33,7 +33,7 @@ function App() {
 
       }, {
         headers: {
-          'Authorization': `Bearer ${import.meta.env.VITE_APP_OPENAI_API_KEY}`,
+          'Authorization': `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
           'Content-Type': 'application/json'
         }
       });
