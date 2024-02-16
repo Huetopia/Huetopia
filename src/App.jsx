@@ -4,6 +4,9 @@ import { GeneratePalette } from "./components/GeneratePalette";
 import { Routes, Route } from "react-router-dom";
 import { ColorPaletteDetails } from "./components/ColorPaletteDetails";
 
+// delete once Tailwind is implemented
+import "./App.css";
+
 function App() {
   return (
     <>
