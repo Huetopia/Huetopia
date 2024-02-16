@@ -1,14 +1,12 @@
 import React from "react";
 import axios from "axios";
 import {useState} from "react";
-
-
-
-
+import {useNavigate} from "react-router-dom";
 
 export const GeneratePalette = ()=>{
     const baseURL = "https://api.openai.com";
         const [theme, setTheme] = useState("");
+        const navigate = useNavigate();
 
         const handleSubmit = async (e) => {
           e.preventDefault();

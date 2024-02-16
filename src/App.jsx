@@ -1,15 +1,18 @@
 // src/ChatInput.js
 import React, { useState } from "react";
 import { GeneratePalette } from "./components/GeneratePalette";
-
-
+import { Routes, Route } from "react-router-dom";
+import { ColorPaletteDetails } from "./components/ColorPaletteDetails";
 
 function App() {
-    return (
-        <>
-          <GeneratePalette />
-        </>
-    )
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<GeneratePalette />} />
+        <Route path="/palettes/:id" element={<ColorPaletteDetails />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;
