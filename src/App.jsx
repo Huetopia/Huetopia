@@ -5,6 +5,7 @@ import axios from 'axios';
 const baseURL = 'https://api.openai.com';
 
 function App() {
+
   const [theme, setTheme] = useState('');
 
   const handleSubmit = async (e) => {
@@ -37,6 +38,7 @@ function App() {
           'Content-Type': 'application/json'
         }
       });
+      
       console.log("Usage:", response.data.usage.total_tokens, "tokens");
       console.log(response.data.choices[0].message.content);
 
