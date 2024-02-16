@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "../../src/App.css";
 
 export const ColorPaletteDetails = () => {
   const [palette, setPalette] = useState(null);
@@ -17,6 +18,27 @@ export const ColorPaletteDetails = () => {
         console.error(error);
       });
   }, []);
-
-  return <div></div>;
+  console.log(palette);
+  return (
+    <div>
+      {/* <h1>{palette}</h1> */}
+      {palette !== null && (
+        <>
+          <div
+            style={{ backgroundColor: palette.colors[0].hex }}
+            className="colorbox"
+          ></div>
+          <div style={{ backgroundColor: palette.colors[1].hex }}
+            className="colorbox"></div>
+          <div style={{ backgroundColor: palette.colors[2].hex }}
+            className="colorbox"></div>
+          <div style={{ backgroundColor: palette.colors[3].hex }}
+            className="colorbox"></div>
+          <div style={{ backgroundColor: palette.colors[4].hex }}
+            className="colorbox"></div>
+      
+        </>
+      )}
+    </div>
+  );
 };
