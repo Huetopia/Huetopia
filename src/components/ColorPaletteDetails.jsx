@@ -25,15 +25,11 @@ export const ColorPaletteDetails = () => {
         <>
           <h1>{`${palette.theme.emojis[0]} ${palette.theme.input}`}</h1>
 
-          {/* map */}
-         
-         {
-            palette.colors.map((color, index) => {
-                return <Color colorProp={color} key={index}/>
-            })
-
-         }
-
+          <div className="flex justify-between">
+            {palette.colors.map((color, index) => {
+              return <Color colorProp={color} key={index} />;
+            })}
+          </div>
         </>
       )}
     </div>
