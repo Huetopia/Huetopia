@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const baseURL = 'https://api.openai.com/';
+const baseURL = 'https://api.openai.com';
 
 function App() {
   const [theme, setTheme] = useState('');
@@ -25,7 +25,7 @@ function App() {
           }
         ],
         temperature: 1,
-        max_tokens: 300,
+        max_tokens: 850,
         top_p: 1,
         frequency_penalty: 0,
         presence_penalty: 0,
@@ -37,7 +37,7 @@ function App() {
           'Content-Type': 'application/json'
         }
       });
-      
+      console.log("Usage:", response.data.usage.total_tokens, "tokens");
       console.log(response.data.choices[0].message.content);
 
       // reset input
