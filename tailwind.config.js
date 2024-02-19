@@ -4,5 +4,9 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [require("tailwindcss"), require("daisyui"), require("autoprefixer")],
-}
+  plugins: [
+    require("tailwindcss"),
+    require("daisyui"),
+    require("autoprefixer"),
+  ],
+};
