@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button } from 'react-daisyui'
 
 
 function ColorPalettesList() {
@@ -18,15 +17,17 @@ function ColorPalettesList() {
     }, [])
 
     return (
-        <>
-            <h1 className="font-bold text-neutral">ALL COLORS</h1>
-            <hr />
-            <div className="flex flex-wrap text-neutral ">
+        <div>
+            <div className="w-11/12">
+                <h1 className="font-bold text-neutral">ALL COLORS</h1>
+                <hr />
+            </div>
+            <div className="flex flex-wrap text-neutral">
                 {palettes === null
                     ? <div>Loading...</div>
                     : palettes.map((elm) => {
                         return (
-                            <div key={elm.id} className="w-3/12 m-5">
+                            <div key={elm.id} className="w-3/12 m-6">
                                 <div className="flex flex-row justify-between items-center">
                                     <h2 className="text-neutral">{elm.theme.emojis[0]} {elm.theme.input}</h2>
                                     <button className="btn btn-sm btn-ghost p-0 hover:btn-outline-none" >
@@ -45,7 +46,7 @@ function ColorPalettesList() {
                     })
                 }
             </div>
-        </>
+        </div>
     )
 
 }
