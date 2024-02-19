@@ -23,7 +23,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<GeneratePalette />} />
-        <Route path="/palettes/:id" element={<ColorPaletteDetails />} />
+        <Route path="/palettes/:paletteId" element={<ColorPaletteDetails />} />
         <Route path="/palettes" element={<AllColors url="palettes"/>} />
         <Route path="/favourites" element={<Favourites url="favourites"/>} />
         <Route path="/about" element={<About />} />
