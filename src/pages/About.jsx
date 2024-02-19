@@ -2,11 +2,9 @@ export const About = () => {
   return (
     <div className="">
       <p>
-        <b>Huetopia</b> was built with React as a project during our Web
-        Development Bootcamp at Ironhack.
+        <b>Huetopia</b> is built with React as a project during our Web Development Bootcamp at Ironhack.
         <br />
-        It creates a palette according to your text input. The team behind this
-        project:
+        With an AI API integrated, the webapp generates a color palette according to the text input provided by the user. The team behind this project:
       </p>
 
       {/* team members  */}
@@ -22,7 +20,7 @@ export const About = () => {
           </a>{" "}
           | <a href="https://github.com/feelikeadoll">Github</a>
           <p>
-            Born in Barcelona. Passionate about Japan and nice looking websites.
+          Former fashion designer changing career paths but forever a colour theory enthusiast
           </p>
         </div>
         <div className="team-member">
@@ -34,8 +32,7 @@ export const About = () => {
             | <a href="https://github.com/EazyErik">Github</a>
           </p>
           <p>
-            Aspiring software developer with a passion for yoga and riding
-            single speed bikes
+            Aspiring software developer with a passion for yoga and riding single speed bikes
           </p>
         </div>
       </div>
