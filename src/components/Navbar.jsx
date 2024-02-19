@@ -23,9 +23,9 @@ export const Navbar = () => {
               </Link>
               <Link
                 className="text-gray-800 hover:text-gray-500"
-                to="/favorites"
+                to="/favourites"
               >
-                Favorites
+                Favourites
               </Link>
               <Link
                 className="text-gray-800 hover:text-gray-500"
@@ -66,10 +66,10 @@ export const Navbar = () => {
         <div className="lg:hidden absolute top-0 right-0 mt-16 bg-gray-300">
           <div className="px-2 pt-2 pb-3 space-y-1">
             <Link
-              to="/palettes/favorites"
+              to="/favourites"
               className="block text-gray-800 hover:text-gray-500"
             >
-              Favorites
+              Favourites
             </Link>
             <Link
               to="/palettes"

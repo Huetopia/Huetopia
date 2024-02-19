@@ -6,7 +6,7 @@ import { ColorPaletteDetails } from "./components/ColorPaletteDetails";
 import { Footer } from "./components/Footer";
 import { Navbar } from "./components/Navbar";
 import { AllColors } from "./pages/AllColors";
-import { Favorites } from "./pages/Favorites";
+import { Favourites } from "./pages/Favourites";
 import { About } from "./pages/About";
 import "tailwindcss/tailwind.css";
 import "daisyui/dist/full.css";
@@ -25,7 +25,7 @@ function App() {
         <Route path="/" element={<GeneratePalette />} />
         <Route path="/palettes/:id" element={<ColorPaletteDetails />} />
         <Route path="/palettes" element={<AllColors url="palettes"/>} />
-        <Route path="/favorites" element={<Favorites url="favourites"/>} />
+        <Route path="/favourites" element={<Favourites url="favourites"/>} />
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />

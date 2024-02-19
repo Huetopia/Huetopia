@@ -5,8 +5,8 @@ import Color from "./Color";
 
 export const ColorPaletteDetails = () => {
   const [palette, setPalette] = useState(null);
-  const [favorite, setFavorite] = useState(false);
-  console.log(favorite);
+  const [favourite, setFavourite] = useState(false);
+  console.log(favourite);
 
   const { id } = useParams();
   useEffect(() => {
@@ -23,11 +23,11 @@ export const ColorPaletteDetails = () => {
   // console.log(palette);
 
   //click on Fav button
-  const favoriteHandler = () => {
-    setFavorite(!favorite);
-    console.log(favorite);
+  const favouriteHandler = () => {
+    setFavourite(!favourite);
+    console.log(favourite);
 
-    if (!favorite) {
+    if (!favourite) {
       axios.post("https://huetopia-api.adaptable.app/favourites", palette)
         .then(() => {
           console.log("Added to favourites")
@@ -53,7 +53,7 @@ export const ColorPaletteDetails = () => {
         <>
           <div className="flex justify-between">
             <h1 className="text-3xl font-bold text-neutral uppercase">{`${palette.theme.emojis[0]} ${palette.theme.input}`}</h1>
-            <button className="btn " onClick={favoriteHandler}>
+            <button className="btn " onClick={favouriteHandler}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
