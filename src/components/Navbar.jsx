@@ -23,7 +23,7 @@ export const Navbar = () => {
               </Link>
               <Link
                 className="text-gray-800 hover:text-gray-500"
-                to="/palettes/favorites"
+                to="/favorites"
               >
                 Favorites
               </Link>

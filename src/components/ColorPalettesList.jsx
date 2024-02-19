@@ -1,13 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 
 
-function ColorPalettesList() {
+function ColorPalettesList(props) {
 
     const [palettes, setPalettes] = useState(null)
 
     useEffect(() => {
-        axios.get("https://huetopia-api.adaptable.app/palettes")
+        axios.get("https://huetopia-api.adaptable.app/" + props.url)
             .then((response) => {
                 setPalettes(response.data)
             })

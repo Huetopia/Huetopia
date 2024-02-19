@@ -23,10 +23,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<GeneratePalette />} />
-        {/* <Route path="palettes" element={<ColorPalettesList />} /> */}
         <Route path="/palettes/:id" element={<ColorPaletteDetails />} />
-        <Route path="/palettes" element={<AllColors />} />
-        <Route path="/palettes/favorites" element={<Favorites />} />
+        <Route path="/palettes" element={<AllColors url="palettes"/>} />
+        <Route path="/favorites" element={<Favorites url="favourites"/>} />
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
