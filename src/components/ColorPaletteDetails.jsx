@@ -10,7 +10,6 @@ export const ColorPaletteDetails = () => {
 
   const { paletteId } = useParams();
 
-
   useEffect(() => {
     axios.get(`https://huetopia-api.adaptable.app/palettes/${paletteId}`)
       .then((response) => {
@@ -22,17 +21,13 @@ export const ColorPaletteDetails = () => {
         response.data.find((elm) => {
           if (elm.id == paletteId) {
             setFavourite(true)
-            console.log("in favourites:", favourite)
           }
         })
       })
       .catch((error) => {
         console.error(error);
       });
-
   }, []);
-
-
 
 
   //click on Fav button

@@ -33,7 +33,7 @@ function ColorPalettesList(props) {
                             <div key={elm.id} className="w-3/12 m-6">
                                 <div className="flex flex-row justify-between items-center">
                                     <Link to={`/palettes/${elm.id}`}>
-                                        <h2 className="text-neutral">{elm.theme.emojis[0]} {elm.theme.input}</h2>
+                                        <h2 className="text-neutral capitalize">{elm.theme.emojis[0]} {elm.theme.input}</h2>
                                     </Link>
                                     <button className="btn btn-sm btn-ghost p-0 hover:btn-outline-none">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
