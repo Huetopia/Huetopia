@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Input } from 'react-daisyui'
+import { Button, Input } from "react-daisyui";
 
 export const GeneratePalette = () => {
   const baseURL = "https://api.openai.com";
@@ -113,7 +113,9 @@ export const GeneratePalette = () => {
         onChange={(e) => setTheme(e.target.value)}
       />
       {/* <button type="submit">Submit</button> */}
-      <Button color="neutral" type="submit">Click me!</Button>
+      <Button className="bg-gray-800 text-white" type="submit">
+        Click me!
+      </Button>
     </form>
   );
 };
