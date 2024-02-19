@@ -21,14 +21,32 @@ export const ColorPaletteDetails = () => {
       });
   }, []);
   // console.log(palette);
-  
+
   //click on Fav button
   const favoriteHandler = () => {
     setFavorite(!favorite);
     console.log(favorite);
+
+    if (!favorite) {
+      axios.post("https://huetopia-api.adaptable.app/favourites", palette)
+        .then(() => {
+          console.log("Added to favourites")
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    } else {
+      axios.delete(`https://huetopia-api.adaptable.app/favourites/${id}`)
+        .then(() => {
+          console.log("Removed from favourites")
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
     // show filled heart icon
   }
-  
+
   return (
     <div className="flex flex-col p-10">
       {palette !== null && (
