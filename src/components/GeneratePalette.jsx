@@ -105,18 +105,26 @@ export const GeneratePalette = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Input
-        type="text"
-        id="message"
-        value={theme}
-        required
-        onChange={(e) => setTheme(e.target.value)}
-      />
-      {/* <button type="submit">Submit</button> */}
-      <Button className="bg-gray-800 text-white" type="submit">
-        Click me!
-      </Button>
-    </form>
+    <div className="w-full min-h-vh flex justify-center items-center">
+      <form onSubmit={handleSubmit} className="border rounded-xl flex flex-col justify-center items-center w-[500px] h-64">
+        <label className="font-bold mt-5 text-xl text-drk-grey flex flex-col items-center">
+          <p>Create your own</p> 
+          <p>color palette</p> 
+          </label>
+        <input
+          className="input input-bordered w-2/3 max-w-xs min-h-12 m-5"
+          type="text"
+          id="message"
+          value={theme}
+          placeholder="Add your theme"
+          required
+          onChange={(e) => setTheme(e.target.value)}
+          
+        />
+        <button className="btn btn-neutral btn-wide mb-5" type="submit">
+          Generate
+        </button>
+      </form>
+    </div>
   );
 };

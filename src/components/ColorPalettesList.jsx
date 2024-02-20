@@ -35,7 +35,7 @@ function ColorPalettesList(props) {
       </div>
       <div className="flex flex-wrap grid-cols-3 text-neutral ">
         {palettes === null ? (
-          <div className="w-full min-h-[400px] flex justify-center">
+          <div className="w-full min-h-vh flex justify-center">
             <span className="loading loading-bars loading-md"></span>
           </div>
         ) : (

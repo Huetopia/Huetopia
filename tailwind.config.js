@@ -5,11 +5,16 @@ export default {
     extend: {
       spacing: {
         '30': '30%',
+      },
+      minHeight: {
+        'vh': '100vh',
       }
     },
+    
     colors: {
       "bggrey": "#F4F4F4",
       "grey": "#828282",
+      "drk-grey": "#626262",
       "neutral": "#374151"
     }
   },
