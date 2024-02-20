@@ -6,7 +6,6 @@ import Color from "./Color";
 export const ColorPaletteDetails = () => {
   const [palette, setPalette] = useState(null);
   const [favourite, setFavourite] = useState(false);
-  console.log(favourite);
 
   const { paletteId } = useParams();
 
@@ -33,7 +32,6 @@ export const ColorPaletteDetails = () => {
   //click on Fav button
   const favouriteHandler = () => {
     setFavourite(!favourite);
-    console.log(favourite);
 
     if (!favourite) {
       axios.post("https://huetopia-api.adaptable.app/favourites", palette)
@@ -52,7 +50,6 @@ export const ColorPaletteDetails = () => {
           console.log(error)
         })
     }
-    // show filled heart icon
   }
 
   return (
