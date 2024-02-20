@@ -44,7 +44,7 @@ function ColorPalette(props) {
     }
 
     return (
-        <div key={palette.id} className="w-full my-4 md:w-30 md:mx-2 lg:m-5">
+        <div key={palette.id} className="w-full my-4 md:w-30 md:mx-2 lg:m-3.5">
                 <div className="flex flex-row justify-between items-center">
                     <Link to={`/palettes/${palette.id}`}>
                         <h2 className="text-neutral capitalize text-sm lg:text-base">
