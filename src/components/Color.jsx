@@ -1,13 +1,22 @@
 import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Color({ colorProp }) {
   const [infoscreen, setInfoscreen] = useState(false);
-  const [copied, setCopied] = useState(false);
+  // const [copied, setCopied] = useState(false);
 
   const copyToClipBoard = (event) => {
     event.preventDefault();
-    setCopied(!copied);
+
+    showToastMessage()
+
     navigator.clipboard.writeText(colorProp.hex);
+  };
+
+  const showToastMessage = () => {
+    toast.success(`${colorProp.hex} copied to clipboard`, {
+    });
   };
 
   return (
@@ -39,24 +48,22 @@ function Color({ colorProp }) {
       <div
         style={{ backgroundColor: colorProp.hex }}
         //   className="w-50 h-50 colorbox"
-        className="flex flex-col justify-center items-end w-full h-24 pr-5 mb-5 rounded-xl md:rounded-none md:rounded-b-xl md:h-96 md:mr-5 last:mr-0 md:justify-between md:items-center md:pb-5 md:pr-0"
+        className="flex flex-col justify-center items-end w-full h-24 pr-5 mb-5 rounded-xl md:rounded-none md:rounded-b-xl md:h-96 md:mr-0 last:mr-0 md:justify-between md:items-center md:pb-5 md:pr-0"
         onClick={copyToClipBoard}
       >
-        {infoscreen && (
-          <div className="p-4 mt-5 hidden md:block bg-gray-50 text-neutral w-4/5 rounded-md ">
-            {colorProp.description}
-          </div>
-        )}
+        <div className="w-4/5">
+          {infoscreen && (
+            <div className="p-4 mt-5 hidden md:block bg-gray-50 text-neutral w-full rounded-md ">
+              {colorProp.description}
+            </div>
+          )}
+        </div>
 
         <div className="badge badge-lg mb-2 md:relative md:bottom-0">
           {colorProp.hex}
         </div>
       </div>
-      {copied && <div className="toast">
-        <div className="alert alert-info bg-white">
-          <span>{colorProp.hex} copied to clipboard</span>
-        </div>
-      </div>}
+      <ToastContainer />
       
     </div>
   );
