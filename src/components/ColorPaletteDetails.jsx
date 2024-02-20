@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export const ColorPaletteDetails = () => {
   const [palette, setPalette] = useState(null);
   const [favourite, setFavourite] = useState(false);
+  const [editable, setEditable] = useState(false);
 
   const formRef = useRef(null); // reference to the form
   
@@ -41,6 +42,7 @@ export const ColorPaletteDetails = () => {
   //click on Fav button
   const favouriteHandler = () => {
     setFavourite(!favourite);
+    console.log(favourite);
 
     if (!favourite) {
       axios
@@ -61,7 +63,29 @@ export const ColorPaletteDetails = () => {
           console.log(error);
         });
     }
-  }
+  };
+
+  // submit form and update palette
+  const updateHandler = (event) => {
+    event.preventDefault();
+    console.log("updateHandler");
+    console.log(palette);
+
+    // update palette in database
+    axios.put("https://huetopia-api.adaptable.app/favourites", palette)
+     .then((result) => {
+      // show success message
+      toast.success(`Palette Name updated`, {
+      });
+     }).catch((err) => {
+      toast.error(`Something went wrong: ${err}`, {
+      });
+      console.log(err);
+     });
+    
+     // reset editable state
+    setEditable(!editable);
+  };
 
   return (
     <div className="flex flex-col p-10">
