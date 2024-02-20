@@ -27,6 +27,9 @@ export const Navbar = () => {
               >
                 Favourites
               </Link>
+              <Link className="text-gray-800 hover:text-gray-500" to="/random">
+                Random palette
+              </Link>
               <Link
                 className="text-gray-800 hover:text-gray-500"
                 to="/palettes"
