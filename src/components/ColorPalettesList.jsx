@@ -23,15 +23,15 @@ function ColorPalettesList(props) {
 
 
   return (
-    <div>
-      <div className="w-11/12">
+    <div className="flex flex-col justify-center p-10">
+      <div>
         {props.url === "favourites" &&
           <h1 className="font-bold text-neutral">FAVOURITES</h1>
         }
         {props.url === "palettes" &&
           <h1 className="font-bold text-neutral">ALL COLORS</h1>
         }
-        <hr className="border-neutral" />
+        <div className="divider mt-0"></div>
       </div>
       <div className="flex flex-wrap text-neutral">
         {palettes === null ? (

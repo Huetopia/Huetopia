@@ -6,8 +6,7 @@ export const Navbar = () => {
 
   return (
     <div className="bg-bggrey">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
               <Link to="/">
                 <div className="text-2xl font-bold text-neutral">HUETOPIA</div>
               </Link>
@@ -52,7 +51,7 @@ export const Navbar = () => {
               </svg>
             </button>
           </div>
-        </div>
+
       </div>
       {/* Responsive Burger Menu (shown on small screens) */}
       {isMenuOpen && (
