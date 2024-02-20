@@ -24,7 +24,7 @@ function ColorPalettesList(props) {
 
   return (
     <div className="flex flex-col justify-center p-10 max-w-7xl">
-      <div className="max-w-7xl md:mx-2 lg:m-3.5">
+      <div className=" max-w-7xl md:mx-2 lg:m-3.5 lg:min-w-[1200px]">
         {props.url === "favourites" &&
           <h1 className="font-bold text-neutral">FAVOURITES</h1>
         }
@@ -35,7 +35,9 @@ function ColorPalettesList(props) {
       </div>
       <div className="flex flex-wrap grid-cols-3 text-neutral ">
         {palettes === null ? (
-          <div>Loading...</div>
+          <div className="w-full min-h-[400px] flex justify-center">
+            <span className="loading loading-bars loading-md"></span>
+          </div>
         ) : (
           palettes.map((elm) => {
             return (
