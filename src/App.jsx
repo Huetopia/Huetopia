@@ -20,19 +20,28 @@ import { RandomPalette } from "./pages/RandomPalette";
 
 function App() {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<GeneratePalette />} />
-        <Route path="/palettes/:paletteId" element={<ColorPaletteDetails url="palettes"/>} />
-        <Route path="/palettes" element={<AllColors url="palettes" />} />
-        <Route path="/favourites" element={<Favourites url="favourites" />} />
-        <Route path="/favourites/:paletteId" element={<ColorPaletteDetails url="favourites"/>} />
-        <Route path="/random" element={<RandomPalette />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+
+      <div className="flex-grow">
+        <Routes>
+          <Route path="/" element={<GeneratePalette />} />
+          <Route
+            path="/palettes/:paletteId"
+            element={<ColorPaletteDetails url="palettes" />}
+          />
+          <Route path="/palettes" element={<AllColors url="palettes" />} />
+          <Route path="/favourites" element={<Favourites url="favourites" />} />
+          <Route
+            path="/favourites/:paletteId"
+            element={<ColorPaletteDetails url="favourites" />}
+          />
+          <Route path="/random" element={<RandomPalette />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

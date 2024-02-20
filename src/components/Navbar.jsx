@@ -13,14 +13,14 @@ export const Navbar = () => {
 
         <div className="hidden lg:block ml-0 space-x-4 text-sm">
           <NavLink
+            className="text-grey font-bold hover:black m-5" to="/random">
+            RANDOM PALETTE
+          </NavLink>
+          <NavLink
             className="text-grey font-bold hover:black m-5"
             to="/favourites"
           >
             FAVOURITES
-          </NavLink>
-          <NavLink
-            className="text-grey font-bold hover:black m-5" to="/random">
-            RANDOM PALETTE
           </NavLink>
           <NavLink
             className="text-grey font-bold hover:black m-5" to="/palettes"

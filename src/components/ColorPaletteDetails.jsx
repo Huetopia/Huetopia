@@ -89,7 +89,7 @@ export const ColorPaletteDetails = (props) => {
   };
 
   return (
-    <div >
+   
       <div className="max-w-7xl mx-auto px-4 pt-10 ">
         {palette !== null && (
           <>
@@ -174,6 +174,6 @@ export const ColorPaletteDetails = (props) => {
           </>
         )}
       </div>
-    </div>
+   
   );
 };
