@@ -49,7 +49,6 @@ export const RandomPalette = () => {
       .then((response) => {
         let palettesLength = response.data.length;
         let randomIndex = Math.floor(Math.random() * palettesLength) + 1;
-        console.log(response.data.length);
 
         navigate(`/palettes/${randomIndex}`);
       })

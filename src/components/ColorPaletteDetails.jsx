@@ -57,7 +57,7 @@ export const ColorPaletteDetails = () => {
       {palette !== null && (
         <>
           <div className="flex justify-between">
-            <h1 className="text-3xl font-bold text-neutral uppercase">{`${palette.theme.emojis[0]} ${palette.theme.input}`}</h1>
+            <h1 className="text-3xl font-bold text-neutral capitalize">{`${palette.theme.emojis[0]} ${palette.theme.input}`}</h1>
             {favourite === true
               ? <button onClick={favouriteHandler} className="btn btn-sm btn-ghost p-0 hover:btn-outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
