@@ -13,6 +13,7 @@ import "daisyui/dist/full.css";
 
 // src/components
 import ColorPalettesList from "./components/ColorPalettesList";
+import { RandomPalette } from "./pages/RandomPalette";
 
 // delete once Tailwind is implemented
 //import "./App.css";
@@ -24,8 +25,9 @@ function App() {
       <Routes>
         <Route path="/" element={<GeneratePalette />} />
         <Route path="/palettes/:paletteId" element={<ColorPaletteDetails />} />
-        <Route path="/palettes" element={<AllColors url="palettes"/>} />
-        <Route path="/favourites" element={<Favourites url="favourites"/>} />
+        <Route path="/palettes" element={<AllColors url="palettes" />} />
+        <Route path="/favourites" element={<Favourites url="favourites" />} />
+        <Route path="/random" element={<RandomPalette />} />
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />

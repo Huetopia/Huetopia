@@ -17,10 +17,20 @@ export const Navbar = () => {
                 className="text-grey font-bold hover:black m-5"
                 to="/favourites"
               >
+<<<<<<< HEAD
                 FAVOURITES
               </NavLink>
               <NavLink
                 className="text-grey font-bold hover:black m-5"
+=======
+                Favourites
+              </Link>
+              <Link className="text-gray-800 hover:text-gray-500" to="/random">
+                Random palette
+              </Link>
+              <Link
+                className="text-gray-800 hover:text-gray-500"
+>>>>>>> feat/random
                 to="/palettes"
               >
                 ALL COLORS
