@@ -23,7 +23,7 @@ function ColorPalettesList(props) {
 
 
   return (
-    <div className="flex flex-col justify-center p-10 max-w-7xl">
+    <div className="flex flex-col p-10 max-w-7xl min-h-vh">
       <div className="min-w-full max-w-7xl md:mx-2 lg:m-3.5 xl:min-w-[1200px] lg:min-w-[800px]">
         {props.url === "favourites" &&
           <h1 className="font-bold text-neutral">FAVOURITES</h1>
@@ -35,7 +35,7 @@ function ColorPalettesList(props) {
       </div>
       <div className="flex flex-wrap grid-cols-3 text-neutral ">
         {palettes === null ? (
-          <div className="w-full min-h-vh flex justify-center">
+          <div className="w-full flex justify-center">
             <span className="loading loading-bars loading-md"></span>
           </div>
         ) : (

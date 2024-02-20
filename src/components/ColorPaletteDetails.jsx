@@ -89,7 +89,7 @@ export const ColorPaletteDetails = (props) => {
   };
 
   return (
-    <div className="flex flex-col p-10">
+    <div className="flex flex-col p-10 min-h-vh">
       {palette !== null && (
         <>
           <div className="flex justify-between">
