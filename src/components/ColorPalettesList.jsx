@@ -41,7 +41,7 @@ function ColorPalettesList(props) {
         ) : (
           palettes.map((elm) => {
             return (
-              <ColorPalette key={elm.id} palette={elm} />
+              <ColorPalette key={elm.id} palette={elm} url={props.url} />
             );
           })
         )}

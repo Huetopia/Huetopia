@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams} from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Color from "./Color";
@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-export const ColorPaletteDetails = () => {
+export const ColorPaletteDetails = (props) => {
   const [palette, setPalette] = useState(null);
   const [favourite, setFavourite] = useState(false);
   const [editable, setEditable] = useState(false);
@@ -15,9 +15,10 @@ export const ColorPaletteDetails = () => {
   
   const { paletteId } = useParams();
 
+
   useEffect(() => {
     axios
-      .get(`https://huetopia-api.adaptable.app/palettes/${paletteId}`)
+      .get(`https://huetopia-api.adaptable.app/${props.url}/${paletteId}`) 
       .then((response) => {
         // console.log(response.data);
         setPalette(response.data);
@@ -72,7 +73,7 @@ export const ColorPaletteDetails = () => {
     console.log(palette);
 
     // update palette in database
-    axios.put("https://huetopia-api.adaptable.app/favourites", palette)
+    axios.put(`https://huetopia-api.adaptable.app/favourites/${paletteId}`, palette)
      .then((result) => {
       // show success message
       toast.success(`Palette Name updated`, {

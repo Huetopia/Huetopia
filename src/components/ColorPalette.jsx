@@ -46,7 +46,7 @@ function ColorPalette(props) {
     return (
         <div key={palette.id} className="w-full my-4 md:w-30 md:mx-2 lg:m-5">
                 <div className="flex flex-row justify-between items-center">
-                    <Link to={`/palettes/${palette.id}`}>
+                    <Link to={`/${props.url}/${palette.id}`}>
                         <h2 className="text-neutral capitalize text-sm lg:text-base">
                             {palette.theme.emojis[0]} {palette.theme.input}
                         </h2>
@@ -94,7 +94,7 @@ function ColorPalette(props) {
                             </button>
                         )}
                 </div>
-                <Link to={`/palettes/${palette.id}`}>
+                <Link to={`/${props.url}/${palette.id}`}>
                     <div
                         className="w-full h-12"
                         style={{ backgroundColor: palette.colors[0].hex }}
