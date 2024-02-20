@@ -25,7 +25,12 @@ function ColorPalettesList(props) {
   return (
     <div>
       <div className="w-11/12">
-        <h1 className="font-bold text-neutral">ALL COLORS</h1>
+        {props.url === "favourites" &&
+          <h1 className="font-bold text-neutral">FAVOURITES</h1>
+        }
+        {props.url === "palettes" &&
+          <h1 className="font-bold text-neutral">ALL COLORS</h1>
+        }
         <hr />
       </div>
       <div className="flex flex-wrap text-neutral">
@@ -34,7 +39,7 @@ function ColorPalettesList(props) {
         ) : (
           palettes.map((elm) => {
             return (
-              <ColorPalette key={elm.id} palette={elm}/>
+              <ColorPalette key={elm.id} palette={elm} />
             );
           })
         )}
