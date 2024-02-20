@@ -1,40 +1,33 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="bg-gray-300">
+    <div className="bg-bggrey">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex">
-            <div className="flex-shrink-0 flex items-center">
+        <div className="flex justify-between items-center h-16">
               <Link to="/">
-                <div className="text-xl font-bold">Huetopia</div>
+                <div className="text-2xl font-bold text-neutral">HUETOPIA</div>
               </Link>
-            </div>
-          </div>
 
-          <div className="hidden lg:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              <Link className="text-gray-800 hover:text-gray-500" to="/about">
-                About
-              </Link>
-              <Link
-                className="text-gray-800 hover:text-gray-500"
+          <div className="hidden lg:block ml-0 space-x-4 text-sm">
+              <NavLink
+                className="text-grey font-bold hover:black m-5"
                 to="/favourites"
               >
-                Favourites
-              </Link>
-              <Link
-                className="text-gray-800 hover:text-gray-500"
+                FAVOURITES
+              </NavLink>
+              <NavLink
+                className="text-grey font-bold hover:black m-5"
                 to="/palettes"
               >
-                All colors
+                ALL COLORS
+              </NavLink>
+              <Link to="/">
+                <button className="btn btn-neutral btn-sm m-5">New</button>
               </Link>
-              <div className="text-gray-800 hover:text-gray-500">New</div>
-            </div>
           </div>
           {/* Burger menu button positioned in top-right corner */}
           <div className="flex items-center lg:hidden">
@@ -65,19 +58,19 @@ export const Navbar = () => {
       {isMenuOpen && (
         <div className="lg:hidden absolute top-0 right-0 mt-16 bg-gray-300">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            <Link
+            <NavLink
               to="/favourites"
-              className="block text-gray-800 hover:text-gray-500"
+              className="block text-gray-800 hover:black"
             >
               Favourites
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/palettes"
-              className="block text-gray-800 hover:text-gray-500"
+              className="block text-gray-800 hover:black"
             >
               All colors
-            </Link>
-            <div className="block text-gray-800 hover:text-gray-500">New</div>
+            </NavLink>
+            <div className="block text-gray-800 hover:black">New</div>
           </div>
         </div>
       )}

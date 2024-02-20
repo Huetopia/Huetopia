@@ -31,7 +31,7 @@ function ColorPalettesList(props) {
         {props.url === "palettes" &&
           <h1 className="font-bold text-neutral">ALL COLORS</h1>
         }
-        <hr />
+        <hr className="border-neutral" />
       </div>
       <div className="flex flex-wrap text-neutral">
         {palettes === null ? (
