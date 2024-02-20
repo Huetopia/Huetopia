@@ -72,7 +72,7 @@ export const ColorPaletteDetails = () => {
     console.log(palette);
 
     // update palette in database
-    axios.put("https://huetopia-api.adaptable.app/favourites", palette)
+    axios.put(`https://huetopia-api.adaptable.app/favourites/${paletteId}`, palette)
      .then((result) => {
       // show success message
       toast.success(`Palette Name updated`, {
