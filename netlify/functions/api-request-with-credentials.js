@@ -5,9 +5,7 @@ export const handler = async (event, context) => {
   const API_KEY = process.env.OPENAI_API_KEY;
   // const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`
 
-  const contentVar = JSON.parse(event.body) 
-  console.log("Var:", contentVar.theme);
-  console.log("Type:", typeof contentVar.theme);
+  const contentVar = JSON.parse(event.body);
 
   // const response = await axios.get(API_URL);
   try {
@@ -86,12 +84,13 @@ export const handler = async (event, context) => {
     console.log("Usage:", response.data.usage.total_tokens, "tokens");
     console.log(response.data.choices[0].message.content);
 
-
-
     return {
-        statusCode: 200,
-        // body: newPalette,
-      };
+      statusCode: 200,
+      // body: newPalette,
+      body: {
+        info: response.data.choices[0].message.content,
+      },
+    };
 
     // write to palettes API endpoint
     // axios
@@ -108,15 +107,14 @@ export const handler = async (event, context) => {
   } catch (error) {
     console.error("Error during API call: ", error);
     return {
-        statusCode: 500,
-      };
+      statusCode: 500,
+    };
   }
 
-//   return {
-//     statusCode: 200,
-//     body: JSON.stringify({
-//       info: response.data,
-//     }),
-//   };
-  
+  //   return {
+  //     statusCode: 200,
+  //     body: JSON.stringify({
+  //       info: response.data,
+  //     }),
+  //   };
 };
