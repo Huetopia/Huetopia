@@ -3,11 +3,9 @@ const axios = require("axios");
 export const handler = async (event, context) => {
   const baseURL = "https://api.openai.com/v1/chat/completions";
   const API_KEY = process.env.OPENAI_API_KEY;
-  // const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`
 
   const contentVar = JSON.parse(event.body);
 
-  // const response = await axios.get(API_URL);
   try {
     console.log("Call API");
     const response = await axios.post(
@@ -87,7 +85,9 @@ export const handler = async (event, context) => {
 
     return {
       statusCode: 200,
-      // body: newPalette,
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      },
       body: JSON.stringify({
         info: response.data.choices[0].message.content,
       }),
@@ -101,10 +101,5 @@ export const handler = async (event, context) => {
     };
   }
 
-  //   return {
-  //     statusCode: 200,
-  //     body: JSON.stringify({
-  //       info: response.data,
-  //     }),
-  //   };
+
 };
