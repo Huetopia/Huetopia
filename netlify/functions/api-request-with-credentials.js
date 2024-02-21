@@ -7,6 +7,7 @@ export const handler = async (event, context) => {
 
   const contentVar = JSON.parse(event.body) 
   console.log("Var:", contentVar.theme);
+  console.log("Type:", typeof contentVar.theme);
 
   // const response = await axios.get(API_URL);
   try {
@@ -62,7 +63,7 @@ export const handler = async (event, context) => {
           },
           {
             role: "user",
-            content: "nightmares", //passed from GeneratePalette.jsx
+            content: contentVar.theme, //passed from GeneratePalette.jsx
           },
         ],
         temperature: 1,
