@@ -8,36 +8,29 @@ export const Navbar = () => {
     <div className="bg-bggrey">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-              <Link to="/">
-                <div className="text-2xl font-bold text-neutral">HUETOPIA</div>
-              </Link>
+          <Link to="/">
+            <div className="text-2xl font-bold text-neutral">HUETOPIA</div>
+          </Link>
 
           <div className="hidden lg:block ml-0 space-x-4 text-sm">
-              <NavLink
-                className="text-grey font-bold hover:black m-5"
-                to="/favourites"
-              >
-<<<<<<< HEAD
-                FAVOURITES
-              </NavLink>
-              <NavLink
-                className="text-grey font-bold hover:black m-5"
-=======
-                Favourites
-              </Link>
-              <Link className="text-gray-800 hover:text-gray-500" to="/random">
-                Random palette
-              </Link>
-              <Link
-                className="text-gray-800 hover:text-gray-500"
->>>>>>> feat/random
-                to="/palettes"
-              >
-                ALL COLORS
-              </NavLink>
-              <Link to="/">
-                <button className="btn btn-neutral btn-sm m-5">New</button>
-              </Link>
+            <NavLink
+              className="text-grey font-bold hover:black m-5"
+              to="/favourites"
+            >
+              FAVOURITES
+            </NavLink>
+            <Link className="text-grey font-bold hover:black m-5" to="/random">
+              RANDOM PALETTE
+            </Link>
+            <NavLink
+              className="text-grey font-bold hover:black m-5"
+              to="/palettes"
+            >
+              ALL COLORS
+            </NavLink>
+            <Link to="/">
+              <button className="btn btn-neutral btn-sm m-5">New</button>
+            </Link>
           </div>
           {/* Burger menu button positioned in top-right corner */}
           <div className="flex items-center lg:hidden">
@@ -74,10 +67,7 @@ export const Navbar = () => {
             >
               Favourites
             </NavLink>
-            <NavLink
-              to="/palettes"
-              className="block text-gray-800 hover:black"
-            >
+            <NavLink to="/palettes" className="block text-gray-800 hover:black">
               All colors
             </NavLink>
             <div className="block text-gray-800 hover:black">New</div>
