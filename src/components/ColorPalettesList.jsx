@@ -39,11 +39,15 @@ function ColorPalettesList(props) {
             <span className="loading loading-bars loading-md"></span>
           </div>
         ) : (
-          palettes.map((elm) => {
-            return (
-              <ColorPalette key={elm.id} palette={elm} url={props.url} />
-            );
-          })
+          palettes.length > 0 ? (
+            palettes.map((elm) => {
+              return (
+                <ColorPalette key={elm.id} palette={elm} url={props.url} />
+              );
+            })
+          ) : (
+            <div className="w-full flex justify-center">No color palettes available</div>
+          )
         )}
       </div>
     </div>

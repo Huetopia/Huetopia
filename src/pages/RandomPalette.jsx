@@ -57,5 +57,5 @@ export const RandomPalette = () => {
       });
   }, []);
 
-  return <div></div>;
+  return <div className="min-h-vh w-full flex justify-center"><span className="loading loading-bars loading-md"></span></div>;
 };

@@ -108,7 +108,7 @@ export const GeneratePalette = () => {
     <div className="w-full min-h-vh flex justify-center items-center">
       <form onSubmit={handleSubmit} className="border rounded-xl flex flex-col justify-center items-center w-[500px] h-64">
         <label className="font-bold mt-5 text-xl text-drk-grey flex flex-col items-center">
-          <p>Create your own</p> 
+          <p>Create your own AI</p> 
           <p>color palette</p> 
           </label>
         <input
@@ -116,7 +116,7 @@ export const GeneratePalette = () => {
           type="text"
           id="message"
           value={theme}
-          placeholder="Add your theme"
+          placeholder="What's in your mind?"
           required
           onChange={(e) => setTheme(e.target.value)}
           
