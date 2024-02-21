@@ -85,9 +85,6 @@ export const handler = async (event, context) => {
 
     return {
       statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*"
-      },
       body: JSON.stringify({
         info: response.data.choices[0].message.content,
       }),
