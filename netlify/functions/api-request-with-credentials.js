@@ -7,6 +7,9 @@ export const handler = async (event, context) => {
 
   console.log(event);
   console.log(event?.body);
+  const contentVar = JSON.parse(event.body) 
+  console.log("Var:", contentVar);
+  console.log("Type:", typeof contentVar);
   // const response = await axios.get(API_URL);
   try {
     console.log("Call API");
@@ -61,7 +64,7 @@ export const handler = async (event, context) => {
           },
           {
             role: "user",
-            content: event.body.theme, //passed from GeneratePalette.jsx
+            content: contentVar.theme, //passed from GeneratePalette.jsx
           },
         ],
         temperature: 1,
