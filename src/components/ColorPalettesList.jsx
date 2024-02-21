@@ -7,7 +7,6 @@ import ColorPalette from "./ColorPalette";
 function ColorPalettesList(props) {
   const [palettes, setPalettes] = useState(null);
   const [value, setValue] = useState("");
-  // const [filteredColors, setFilteredColors] = useState(null);
 
   useEffect(() => {
     axios
@@ -18,7 +17,15 @@ function ColorPalettesList(props) {
         const filteredPalettes = response.data.filter((elm) => {
           if (
             elm.colors[0].description.includes(value) ||
-            elm.colors[0].name.includes(value)
+            elm.colors[1].description.includes(value) ||
+            elm.colors[2].description.includes(value) ||
+            elm.colors[3].description.includes(value) ||
+            elm.colors[4].description.includes(value) ||
+            elm.colors[0].name.includes(value) ||
+            elm.colors[1].name.includes(value) ||
+            elm.colors[2].name.includes(value) ||
+            elm.colors[3].name.includes(value) ||
+            elm.colors[4].name.includes(value)
           ) {
             console.log("ok");
             return true;
@@ -27,8 +34,6 @@ function ColorPalettesList(props) {
             return false;
           }
         })
-        console.log(filteredPalettes)
-    
         setPalettes(filteredPalettes)
       })
       .catch((error) => {
