@@ -18,7 +18,7 @@ export const GeneratePalette = () => {
       )
       .then((response) => {
         console.log(response.data);
-        const newPalette = JSON.parse(response.data);
+        const newPalette = JSON.parse(response.data.info);
         console.log("Info:", newPalette);
 
         // write to palettes API endpoint
