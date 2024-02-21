@@ -79,7 +79,7 @@ export const handler = async (event, context) => {
     );
 
     // define incoming Data
-    const newPalette = response.data.choices[0].message.content;
+    const newPalette = JSON.parse(response.data.choices[0].message.content);
 
     console.log("Usage:", response.data.usage.total_tokens, "tokens");
     console.log(response.data.choices[0].message.content);
@@ -88,7 +88,7 @@ export const handler = async (event, context) => {
 
     return {
         statusCode: 200,
-        body: newPalette,
+        // body: newPalette,
       };
 
     // write to palettes API endpoint
