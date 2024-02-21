@@ -53,7 +53,7 @@ function Color({ colorProp }) {
       >
         <div className="w-4/5">
           {infoscreen && (
-            <div className="p-4 mt-5 hidden md:block bg-gray-50 text-neutral w-full rounded-md ">
+            <div className="p-4 mt-5 hidden md:block bg-bggrey text-neutral w-full rounded-md ">
               {colorProp.description}
             </div>
           )}

@@ -37,14 +37,18 @@ export const ColorPaletteDetails = (props) => {
   }, []);
 
   const editName = () => {
-    setEditable(!editable);
+    if (!editable) {
+      console.log("Editable:", editable);
+      setEditable(!editable);
+    }
   };
 
   //click on Fav button
-  const favouriteHandler = () => {
+  const favouriteHandler = (event) => {
+    event.stopPropagation(); // Stop event propagation
     setFavourite(!favourite);
     console.log(favourite);
-
+  
     if (!favourite) {
       axios
         .post("https://huetopia-api.adaptable.app/favourites", palette)
@@ -89,48 +93,68 @@ export const ColorPaletteDetails = (props) => {
   };
 
   return (
-    <div className="flex flex-col p-10 min-h-vh">
-      {palette !== null && (
-        <>
-          <div className="flex justify-between">
-            {editable ? (
-              <div className="flex">
-                <h1
-                  className="text-3xl font-bold text-neutral uppercase"
-                  onClick={editName}
-                >{`${palette.theme.emojis[0]} `}</h1>
-                <form ref={formRef} >
-                  <input
-                    className="text-3xl font-bold text-neutral uppercase ml-2 pl-2 border border-neutral-300 bg-neutral-50 rounded 
-
-                    "
-                    type="text"
-                    value={palette.theme.input}
-                    onChange={(e) =>
-                      setPalette({
-                        ...palette,
-                        theme: { ...palette.theme, input: e.target.value },
-                      })
-                    }
-                  />
-                
-                </form>
-              </div>
-            ) : (
-              <h1 className="text-3xl font-bold text-neutral uppercase">{`${palette.theme.emojis[0]} ${palette.theme.input}`}</h1>
-            )}
-
-            {favourite === true ? (
-              <div className="flex gap-5 items-center" onClick={editName}>
-                {editable ? <button className="btn btn-xs" onClick={updateHandler} >Update</button> : <button className="btn btn-xs ">Edit</button>}
-                
+   
+      <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-10 px-4 ">
+        {palette !== null && (
+          <>
+            <div className="flex justify-between">
+              {editable ? (
+                <div className="flex">
+                  <h1
+                    className="text-2xl font-bold text-neutral capitalize"
+                    onClick={editName}
+                  >{`${palette.theme.emojis[0]} `}</h1>
+                  <form ref={formRef} >
+                    <input
+                      className="text-2xl font-bold text-neutral capitalize ml-2 pl-2 border border-neutral-300 bg-neutral-50 rounded
+                      "
+                      type="text"
+                      value={palette.theme.input}
+                      onChange={(e) =>
+                        setPalette({
+                          ...palette,
+                          theme: { ...palette.theme, input: e.target.value },
+                        })
+                      }
+                    />
+      
+                  </form>
+                </div>
+              ) : (
+                <h1 className="text-2xl font-bold text-neutral capitalize">{`${palette.theme.emojis[0]} ${palette.theme.input}`}</h1>
+              )}
+              {favourite === true ? (
+                <div className="flex gap-5 items-center" onClick={editName}>
+                  {editable ? <button className="btn btn-xs" onClick={updateHandler} >Update</button> : <button className="btn btn-xs ">Edit</button>}
+      
+                  <button
+                    onClick={favouriteHandler}
+                    className="btn btn-sm btn-ghost  p-0 hover:btn-outline-none hover:bg-transparent hover:fill-none"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              ) : (
                 <button
                   onClick={favouriteHandler}
-                  className="btn btn-sm btn-ghost p-0 hover:btn-outline-none"
+                  className="btn btn-sm btn-ghost fill-none p-0 hover:btn-outline-none hover:bg-transparent hover:fill-neutral-900"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
+                    // fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
@@ -142,39 +166,18 @@ export const ColorPaletteDetails = (props) => {
                     />
                   </svg>
                 </button>
-              </div>
-            ) : (
-              <button
-                onClick={favouriteHandler}
-                className="btn btn-sm btn-ghost p-0 hover:btn-outline-none"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  />
-                </svg>
-              </button>
-            )}
-          </div>
-          <div className="divider mt-0"></div>
-
-          <div className="flex flex-col w-full justify-between md:flex-row">
-            {palette.colors.map((color, index) => {
-              return <Color colorProp={color} key={index} />;
-            })}
-          </div>
-          <ToastContainer />
-        </>
-      )}
-    </div>
+              )}
+            </div>
+            <div className="divider mt-0"></div>
+            <div className="flex flex-col w-full justify-between md:flex-row">
+              {palette.colors.map((color, index) => {
+                return <Color colorProp={color} key={index} />;
+              })}
+            </div>
+            <ToastContainer />
+          </>
+        )}
+      </div>
+   
   );
 };
