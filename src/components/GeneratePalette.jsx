@@ -17,6 +17,7 @@ export const GeneratePalette = () => {
       console.log(response.data)
     })
     .catch( e => {
+      console.log("fail in generatePalette")
       console.log(e)
     })
     
