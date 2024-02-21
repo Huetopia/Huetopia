@@ -5,11 +5,9 @@ export const handler = async (event, context) => {
   const API_KEY = process.env.OPENAI_API_KEY;
   // const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`
 
-  console.log(event);
-  console.log(event?.body);
   const contentVar = JSON.parse(event.body) 
-  console.log("Var:", contentVar);
-  console.log("Type:", typeof contentVar);
+  console.log("Var:", contentVar.theme);
+
   // const response = await axios.get(API_URL);
   try {
     console.log("Call API");
@@ -64,7 +62,7 @@ export const handler = async (event, context) => {
           },
           {
             role: "user",
-            content: contentVar.theme, //passed from GeneratePalette.jsx
+            content: "nightmares", //passed from GeneratePalette.jsx
           },
         ],
         temperature: 1,
