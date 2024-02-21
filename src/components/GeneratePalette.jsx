@@ -11,33 +11,21 @@ export const GeneratePalette = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    axios
-      .post(
-        `https://huetopia.netlify.app/.netlify/functions/api-request-with-credentials`,
-        { theme }
-      )
-      .then((response) => {
-        console.log(response.data);
-        const newPalette = JSON.parse(response.data.info);
-        console.log("Info:", newPalette);
+    try {
+      // call netlify api that calls the OpenAi API internally 
+      const res1 = await axios.post(`https://huetopia.netlify.app/.netlify/functions/api-request-with-credentials`, { theme })
+      const newPalette = JSON.parse(res1.data.info);
 
-        // write to palettes API endpoint
-        return axios.post(
-          "https://huetopia-api.adaptable.app/palettes",
-          newPalette
-        );
-      })
-      .then((res) => {
-        console.log("Success writing to API Endpoint:", res);
-        // reset input
-        setTheme("");
-        navigate(`/palettes/${res.data.id}`);
-      })
+      // store new AI palette to REST API
+      const res2 = await axios.post("https://huetopia-api.adaptable.app/palettes", newPalette);
 
-      .catch((e) => {
-        console.log("fail in generatePalette");
-        console.log(e);
-      });
+       // reset input
+       setTheme("");
+       navigate(`/palettes/${res2.data.id}`);
+    } catch (error) {
+      console.log(error);
+    }
+      
   };
 
   return (
