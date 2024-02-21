@@ -7,37 +7,35 @@ import ColorPalette from "./ColorPalette";
 function ColorPalettesList(props) {
   const [palettes, setPalettes] = useState(null);
   const [value, setValue] = useState("");
-  const [filteredColors, setFilteredColors] = useState(palettes);
+  // const [filteredColors, setFilteredColors] = useState(null);
 
   useEffect(() => {
     axios
       .get("https://huetopia-api.adaptable.app/" + props.url)
       .then((response) => {
         setPalettes(response.data);
-        //    return axios.get(`https://huetopia-api.adaptable.app/favourites`);
-      })
 
+        const filteredPalettes = response.data.filter((elm) => {
+          if (
+            elm.colors[0].description.includes(value) ||
+            elm.colors[0].name.includes(value)
+          ) {
+            console.log("ok");
+            return true;
+          } else {
+            console.log("no");
+            return false;
+          }
+        })
+        console.log(filteredPalettes)
+    
+        setPalettes(filteredPalettes)
+      })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [value]);
 
-  // setFilteredColors(
-  //   palettes &&
-  //     palettes.filter((elm) => {
-  //       console.log(elm);
-  //       if (
-  //         elm.colors[0].description.includes(value) ||
-  //         elm.colors[0].name.includes(value)
-  //       ) {
-  //         console.log("ok");
-  //         return true;
-  //       } else {
-  //         console.log("no");
-  //         return false;
-  //       }
-  //     })
-  // );
 
   return (
     <div>
@@ -45,7 +43,6 @@ function ColorPalettesList(props) {
       <input
         onChange={(e) => {
           setValue(e.target.value);
-          console.log(e.target.value);
         }}
         type="text"
         value={value}
