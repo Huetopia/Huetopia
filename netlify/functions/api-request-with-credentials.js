@@ -87,9 +87,9 @@ export const handler = async (event, context) => {
     return {
       statusCode: 200,
       // body: newPalette,
-      body: {
+      body: JSON.stringify({
         info: response.data.choices[0].message.content,
-      },
+      }),
     };
 
     // write to palettes API endpoint
