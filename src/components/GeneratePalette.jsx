@@ -12,7 +12,7 @@ export const GeneratePalette = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    axios.get(`https://huetopia.netlify.app/.netlify/functions/api-request-with-credentials`)
+    axios.post(`https://huetopia.netlify.app/.netlify/functions/api-request-with-credentials`, {theme})
     .then(response => {
       console.log(response.data)
     })
@@ -34,7 +34,7 @@ export const GeneratePalette = () => {
           className="input input-bordered w-2/3 max-w-xs min-h-12 m-5"
           type="text"
           id="message"
-          // value={theme}
+          value={theme}
           placeholder="What's in your mind?"
           required
           onChange={(e) => setTheme(e.target.value)}
