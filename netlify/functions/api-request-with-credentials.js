@@ -83,6 +83,11 @@ export const handler = async (event, context) => {
     console.log("Usage:", response.data.usage.total_tokens, "tokens");
     console.log(response.data.choices[0].message.content);
 
+    return {
+        statusCode: 200,
+        body: newPalette,
+      };
+
     // write to palettes API endpoint
     // axios
     //   .post("https://huetopia-api.adaptable.app/palettes", newPalette)
@@ -99,10 +104,11 @@ export const handler = async (event, context) => {
     console.error("Error during API call: ", error);
   }
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      info: response.data,
-    }),
-  };
+//   return {
+//     statusCode: 200,
+//     body: JSON.stringify({
+//       info: response.data,
+//     }),
+//   };
+  
 };
