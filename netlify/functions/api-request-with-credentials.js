@@ -6,8 +6,8 @@ export const handler = async (event, context) => {
   // const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`
 
   // const response = await axios.get(API_URL);
-
   try {
+    console.log("Call API");
     const response = await axios.post(
       baseURL,
       {
