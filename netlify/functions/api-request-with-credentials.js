@@ -83,9 +83,10 @@ export const handler = async (event, context) => {
     console.log("Usage:", response.data.usage.total_tokens, "tokens");
     console.log(response.data.choices[0].message.content);
 
+
     return {
         statusCode: 200,
-        body: newPalette,
+        // body: newPalette,
       };
 
     // write to palettes API endpoint
@@ -102,6 +103,9 @@ export const handler = async (event, context) => {
     //   });
   } catch (error) {
     console.error("Error during API call: ", error);
+    return {
+        statusCode: 500,
+      };
   }
 
 //   return {
