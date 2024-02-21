@@ -83,6 +83,7 @@ export const handler = async (event, context) => {
 
     console.log("Usage:", response.data.usage.total_tokens, "tokens");
     console.log(response.data.choices[0].message.content);
+    console.log("Type:", typeof response.data.choices[0].message.content)
 
     return {
       statusCode: 200,
@@ -92,18 +93,7 @@ export const handler = async (event, context) => {
       }),
     };
 
-    // write to palettes API endpoint
-    // axios
-    //   .post("https://huetopia-api.adaptable.app/palettes", newPalette)
-    //   .then((res) => {
-    //     console.log("Success writing to API Endpoint:", res);
-    //     // reset input
-    //     setTheme("");
-    //     navigate(`/palettes/${res.data.id}`);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    
   } catch (error) {
     console.error("Error during API call: ", error);
     return {
