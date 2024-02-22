@@ -43,7 +43,7 @@ export const GeneratePalette = () => {
 
   return (
     <div
-      className="w-full h-full pb-10 flex-grow flex sm:py-20 bg-home bg-left-top bg-no-repeat bg-cover bg-opacity-20 bg-neutral-50 md:items-center md:pt-0"
+      className="w-full h-full py-10 flex-grow flex sm:py-20 bg-home bg-left-top bg-no-repeat bg-cover bg-opacity-20 bg-neutral-50 md:items-center md:pt-0"
       
     >
       <div className="max-w-7xl mx-auto px-4 flex flex-col-reverse items-center h-full md:flex-row sm:px-6 lg:px-8 md:h-full">
