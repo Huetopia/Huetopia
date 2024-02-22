@@ -28,7 +28,7 @@ function FilterByEmoji(props) {
             <div className="max-w-2xl flex justify-center flex-wrap">
                 {emojisArr != [] &&
                     emojisArr.map((elm, index) => {
-                        return <button key={index} className="btn btn-sm btn-ghost p-0 hover:btn-outline-none">
+                        return <button key={index} onClick={() => props.filterEmoji(elm)} className="btn btn-sm btn-ghost p-0 hover:btn-outline-none">
                             <div className="m-1">{elm}</div>
                         </button>
                     })

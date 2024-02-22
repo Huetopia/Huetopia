@@ -7,6 +7,7 @@ function ColorPalettesList(props) {
   const [palettes, setPalettes] = useState(null);
   const [value, setValue] = useState("");
   const [filterMenu, setFilterMenu] = useState(false)
+  const [filtered, setFiltered] = useState(false)
 
   useEffect(() => {
     axios
@@ -21,12 +22,24 @@ function ColorPalettesList(props) {
           )
         );
 
-        setPalettes(filteredPalettes);
+        setFiltered(filteredPalettes);
       })
       .catch((error) => {
         console.log(error);
       });
   }, [value]);
+
+  function filterEmoji(chosenEmoji) {
+    setPalettes(palettes)
+
+    const filteredPalettes = palettes.filter((palette) => {
+      if (palette.theme.emojis[0] === chosenEmoji || palette.theme.emojis[1] === chosenEmoji || palette.theme.emojis[2] === chosenEmoji) {
+        return palette
+      }
+    })
+    setFiltered(filteredPalettes);
+  }
+
 
   return (
     <div className="flex flex-col p-10 max-w-7xl min-h-vh">
@@ -67,7 +80,7 @@ function ColorPalettesList(props) {
         </div>
         <div className="divider my-0"></div>
         {filterMenu &&
-          <FilterByEmoji url={props.url} />
+          <FilterByEmoji url={props.url} filterEmoji={filterEmoji} />
         }
       </div>
       <div className="flex flex-wrap grid-cols-3 text-neutral ">
@@ -76,7 +89,7 @@ function ColorPalettesList(props) {
             <span className="loading loading-bars loading-md"></span>
           </div>
         ) : palettes.length > 0 ? (
-          palettes
+          filtered
             .sort(function (a, b) {
               return b.id - a.id;
             })
