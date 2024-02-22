@@ -18,13 +18,11 @@ import { ErrorPage } from "./pages/ErrorPage";
 import ColorPalettesList from "./components/ColorPalettesList";
 import { RandomPalette } from "./pages/RandomPalette";
 
-// delete once Tailwind is implemented
-//import "./App.css";
+
 
 function App() {
   return (
-   <div className="flex flex-col min-h-screen">
-
+    <div className="flex flex-col min-h-screen">
       <Navbar />
       <Routes>
         <Route path="/" element={<GeneratePalette />} />
@@ -40,11 +38,11 @@ function App() {
         />
         <Route path="/random" element={<RandomPalette />} />
         <Route path="/about" element={<About />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <ToastContainer />
       <Footer />
-    
-   </div>
+    </div>
   );
 }
 
