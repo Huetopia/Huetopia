@@ -52,7 +52,7 @@ function ColorPalettesList(props) {
             <h1 className="font-bold text-neutral">ALL COLORS</h1>
           )}
           <div className="flex flex-col items-end sm:items-center sm:flex-row">
-            <button className="btn btn-sm mx-4" onClick={() => setFilterMenu(!filterMenu)}>
+            <button className="btn btn-sm mb-1 sm:mx-4" onClick={() => setFilterMenu(!filterMenu)}>
               EMOJI FILTER
             </button>
             <label className="w-full input input-bordered flex items-center gap-2 sm:w-50 h-7 my-1">
