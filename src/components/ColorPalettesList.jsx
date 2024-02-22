@@ -14,33 +14,19 @@ function ColorPalettesList(props) {
       .then((response) => {
         setPalettes(response.data);
 
-        const filteredPalettes = response.data.filter((elm) => {
-          if (
-            elm.colors[0].description.includes(value) ||
-            elm.colors[1].description.includes(value) ||
-            elm.colors[2].description.includes(value) ||
-            elm.colors[3].description.includes(value) ||
-            elm.colors[4].description.includes(value) ||
-            elm.colors[0].name.includes(value) ||
-            elm.colors[1].name.includes(value) ||
-            elm.colors[2].name.includes(value) ||
-            elm.colors[3].name.includes(value) ||
-            elm.colors[4].name.includes(value)
-          ) {
-            console.log("ok");
-            return true;
-          } else {
-            console.log("no");
-            return false;
-          }
-        })
-        setPalettes(filteredPalettes)
+        const filteredPalettes = response.data.filter((palette) =>
+          palette.colors.some(
+            (color) =>
+              color.description.includes(value) || color.name.includes(value)
+          )
+        );
+
+        setPalettes(filteredPalettes);
       })
       .catch((error) => {
         console.log(error);
       });
   }, [value]);
-
 
   return (
     <div>
@@ -66,9 +52,13 @@ function ColorPalettesList(props) {
         {palettes === null ? (
           <div>Loading...</div>
         ) : (
-          palettes.map((elm) => {
-            return <ColorPalette key={elm.id} palette={elm} />;
-          })
+          palettes
+            .sort(function (a, b) {
+              return b.id - a.id;
+            })
+            .map((elm) => {
+              return <ColorPalette key={elm.id} palette={elm} />;
+            })
         )}
       </div>
     </div>
