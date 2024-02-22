@@ -11,21 +11,12 @@ function FilterByEmoji(props) {
                 const uniqueEmojis = new Set();
 
                 response.data.forEach(elm => {
-                    if (elm.theme.emojis[0]) uniqueEmojis.add(elm.theme.emojis[0]);
-                    if (elm.theme.emojis[1]) uniqueEmojis.add(elm.theme.emojis[1]);
-                    if (elm.theme.emojis[2]) uniqueEmojis.add(elm.theme.emojis[2]);
+                    for (let i = 0; i < elm.theme.emojis.length; i++) {
+                        if (elm.theme.emojis[i]) uniqueEmojis.add(elm.theme.emojis[i]);
+                    }
                 });
 
                 setEmojisArr(Array.from(uniqueEmojis));
-
-                //   const filteredPalettes = response.data.filter((palette) =>
-                //     palette.colors.some(
-                //       (color) =>
-                //         color.description.includes(value) || color.name.includes(value)
-                //     )
-                //   );
-
-                //   setPalettes(filteredPalettes);
             })
             .catch((error) => {
                 console.log(error);
