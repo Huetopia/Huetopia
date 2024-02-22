@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import example1 from "../assets/palette-example-1.png";
 
 export const GeneratePalette = () => {
@@ -41,10 +41,11 @@ export const GeneratePalette = () => {
     }
   };
 
- 
-
   return (
-    <div className="w-full flex-grow flex  pt-20 bg-home bg-left-top bg-no-repeat bg-cover bg-opacity-20 bg-neutral-50 md:items-center md:pt-0">
+    <div
+      className="w-full h-full flex-grow flex  pt-20 bg-[url('../src/assets/bg.png')] bg-left-top bg-no-repeat bg-cover bg-opacity-20 bg-neutral-50 md:items-center md:pt-0"
+      
+    >
       <div className="max-w-7xl mx-auto px-4 flex flex-col-reverse items-center h-full md:flex-row sm:px-6 lg:px-8 md:h-full">
         <div className="flex flex-col items-center md:items-start justify-center ">
           <h2 className="text-5xl text-center md:text-left w-full font-bold mb-4 lg:w-3/4 ">
@@ -76,7 +77,9 @@ export const GeneratePalette = () => {
               </>
             ) : (
               <div className="mt-2">
-                <p className="text-neutral pb-3">AI is searching the rainbow for inspiration... 🌈</p>
+                <p className="text-neutral pb-3">
+                  AI is searching the rainbow for inspiration... 🌈
+                </p>
                 <progress className="progress w-56"></progress>
               </div>
             )}
