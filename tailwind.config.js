@@ -8,7 +8,13 @@ export default {
       },
       minHeight: {
         'vh': '100vh',
+      },
+      minWidth: {
+        'sm': '620px',
+        'md': '768px',
+        'lg': '980px',
       }
+
     },
     
     colors: {
