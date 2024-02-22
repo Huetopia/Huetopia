@@ -13,7 +13,7 @@ export const Navbar = () => {
           <div className="text-2xl font-bold text-neutral">HUETOPIA</div>
         </Link>
 
-        <nav className="hidden lg:block ml-0 space-x-10 text-sm">
+        <nav className="hidden md:block ml-0 space-x-5 lg:space-x-10 text-sm">
           <NavLink
             className="text-grey font-bold hover:text-drk-grey hover:border-b-2 hover:border-b-drk-grey "
             activeClassName="text-drk-grey border-b-2 border-b-drk-grey"
@@ -39,14 +39,11 @@ export const Navbar = () => {
             <button className="btn btn-neutral btn-sm ml-5">New</button>
           </Link>
         </nav>
-        {/* Burger menu button positioned in top-right corner */}
-        <div className="flex items-center lg:hidden">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 transition"
-          >
+
+        <div className="dropdown dropdown-end md:hidden z-50">
+          <div tabIndex={0} role="button" className="btn btn-ghost">
             <svg
-              className="h-6 w-6"
+              className="h-8 w-8"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -60,26 +57,43 @@ export const Navbar = () => {
                 d="M4 6h16M4 12h16m-7 6h7"
               />
             </svg>
-          </button>
+          </div>
+          <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+            <li>
+              <NavLink
+                className="text-grey font-bold hover:text-drk-grey hover:border-b-2 hover:border-b-drk-grey "
+                activeClassName="text-drk-grey border-b-2 border-b-drk-grey"
+                to="/random"
+              >
+                Random Palette
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                activeClassName="text-drk-grey border-b-2 border-b-drk-grey"
+                className="text-grey font-bold hover:text-drk-grey hover:border-b-2 hover:border-b-drk-grey "
+                to="/favourites"
+              >
+                Favourites
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                activeClassName="text-drk-grey border-b-2 border-b-drk-grey"
+                className="text-grey font-bold hover:text-drk-grey hover:border-b-2 hover:border-b-drk-grey"
+                to="/palettes"
+              >
+                All Colors
+              </NavLink>
+            </li>
+            <li>
+              <Link to="/">
+                <button className="btn btn-neutral btn-sm">New</button>
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
-      {/* Responsive Burger Menu (shown on small screens) */}
-      {isMenuOpen && (
-        <div className="lg:hidden absolute top-0 right-0 mt-16 bg-gray-300">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            <NavLink
-              to="/favourites"
-              className="block text-gray-800 hover:black"
-            >
-              Favourites
-            </NavLink>
-            <NavLink to="/palettes" className="block text-gray-800 hover:black">
-              All colors
-            </NavLink>
-            <div className="block text-gray-800 hover:black">New</div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
