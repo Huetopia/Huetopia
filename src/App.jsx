@@ -40,7 +40,6 @@ function App() {
         />
         <Route path="/random" element={<RandomPalette />} />
         <Route path="/about" element={<About />} />
-        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <ToastContainer />
       <Footer />
