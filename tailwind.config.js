@@ -16,6 +16,9 @@ export default {
       "grey": "#828282",
       "drk-grey": "#626262",
       "neutral": "#374151"
+    },
+    backgroundImage: {
+      'home': "url('./src/assets/bg.png')",
     }
   },
   plugins: [

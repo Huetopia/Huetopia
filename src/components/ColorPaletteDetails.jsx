@@ -97,7 +97,7 @@ export const ColorPaletteDetails = (props) => {
 
   return (
    
-      <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-10 px-4 ">
+      <div className="max-w-7xl sm:px-6 lg:px-8 pt-10 px-4 w-full flex-grow flex flex-col m-auto">
         {palette !== null && (
           <>
             <div className="flex justify-between">
