@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const Favourites = (props) => {
   return (
-    <div>
+    <div className="flex justify-center min-h-vh">
       <ColorPalettesList url={props.url} />
     </div>
   );

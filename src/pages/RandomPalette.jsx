@@ -49,7 +49,6 @@ export const RandomPalette = () => {
       .then((response) => {
         let palettesLength = response.data.length;
         let randomIndex = Math.floor(Math.random() * palettesLength) + 1;
-        console.log(response.data.length);
 
         navigate(`/palettes/${randomIndex}`);
       })
@@ -58,5 +57,5 @@ export const RandomPalette = () => {
       });
   }, []);
 
-  return <div></div>;
+  return <div className="min-h-vh w-full flex justify-center"><span className="loading loading-bars loading-md"></span></div>;
 };

@@ -10,6 +10,8 @@ import { Favourites } from "./pages/Favourites";
 import { About } from "./pages/About";
 import "tailwindcss/tailwind.css";
 import "daisyui/dist/full.css";
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // src/components
 import ColorPalettesList from "./components/ColorPalettesList";
@@ -24,12 +26,14 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<GeneratePalette />} />
-        <Route path="/palettes/:paletteId" element={<ColorPaletteDetails />} />
+        <Route path="/palettes/:paletteId" element={<ColorPaletteDetails url="palettes"/>} />
         <Route path="/palettes" element={<AllColors url="palettes" />} />
         <Route path="/favourites" element={<Favourites url="favourites" />} />
+        <Route path="/favourites/:paletteId" element={<ColorPaletteDetails url="favourites"/>} />
         <Route path="/random" element={<RandomPalette />} />
         <Route path="/about" element={<About />} />
       </Routes>
+      <ToastContainer />
       <Footer />
     </>
   );
