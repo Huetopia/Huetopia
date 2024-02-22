@@ -43,7 +43,7 @@ function ColorPalettesList(props) {
 
   return (
     <div className="flex flex-col p-10 max-w-7xl min-h-vh">
-      <div className="min-w-full max-w-7xl md:mx-2 lg:m-3.5 xl:min-w-[1200px] lg:min-w-[800px]">
+      <div className="min-w-full max-w-7xl sm:min-w-sm md:min-w-md md:mx-2 lg:min-w-lg lg:m-3.5 xl:min-w-[1200px] lg:min-w-[800px]">
         <div className="flex flex-col justify-between sm:flex-row sm:items-end">
           {props.url === "favourites" && (
             <h1 className="font-bold text-neutral">FAVOURITES</h1>
@@ -52,8 +52,8 @@ function ColorPalettesList(props) {
             <h1 className="font-bold text-neutral">ALL COLORS</h1>
           )}
           <div className="flex flex-col items-end sm:items-center sm:flex-row">
-            <button className="btn btn-xs btn-ghost p-0">
-              <h3 className="font-bold text-neutral text-sm mx-5" onClick={() => setFilterMenu(!filterMenu)}>FILTER BY</h3>
+            <button className="btn btn-sm mx-4" onClick={() => setFilterMenu(!filterMenu)}>
+              EMOJI FILTER
             </button>
             <label className="w-full input input-bordered flex items-center gap-2 sm:w-50 h-7 my-1">
               <input
