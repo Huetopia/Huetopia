@@ -14,9 +14,15 @@ function FilterByEmoji(props) {
                 let emojisArr = []
 
                 response.data.map((elm) => {
-                    elm.theme.emojis[0] && emojisArr.push(elm.theme.emojis[0])
-                    elm.theme.emojis[1] && emojisArr.push(elm.theme.emojis[1])
-                    elm.theme.emojis[2] && emojisArr.push(elm.theme.emojis[2])
+                    if (elm.theme.emojis[0] && !emojisArr.includes(elm.theme.emojis[0])){
+                        emojisArr.push(elm.theme.emojis[0])
+                    }
+                    if (elm.theme.emojis[1] && !emojisArr.includes(elm.theme.emojis[1])) {
+                        emojisArr.push(elm.theme.emojis[1])
+                    }
+                    if (elm.theme.emojis[2] && !emojisArr.includes(elm.theme.emojis[2])) {
+                        emojisArr.push(elm.theme.emojis[2])
+                    } 
                 })
                 console.log(emojisArr)
                 //   const filteredPalettes = response.data.filter((palette) =>
