@@ -109,7 +109,7 @@ export const ColorPaletteDetails = (props) => {
                   >{`${palette.theme.emojis[0]} `}</h1>
                   <form ref={formRef} >
                     <input
-                      className="w-96 text-2xl font-bold text-neutral capitalize ml-2 pl-2 border border-neutral-300 bg-neutral-50 rounded
+                      className="md:w-[550px] sm:w-[450px] w-full text-2xl font-bold text-neutral capitalize ml-2 pl-2 border border-neutral-300 bg-neutral-50 rounded
                       "
                       type="text"
                       value={palette.theme.input}
