@@ -11,14 +11,12 @@ function FilterByEmoji(props) {
                 const uniqueEmojis = new Set();
 
                 response.data.forEach(elm => {
-                  if (elm.theme.emojis[0]) uniqueEmojis.add(elm.theme.emojis[0]);
-                  if (elm.theme.emojis[1]) uniqueEmojis.add(elm.theme.emojis[1]);
-                  if (elm.theme.emojis[2]) uniqueEmojis.add(elm.theme.emojis[2]);
+                    if (elm.theme.emojis[0]) uniqueEmojis.add(elm.theme.emojis[0]);
+                    if (elm.theme.emojis[1]) uniqueEmojis.add(elm.theme.emojis[1]);
+                    if (elm.theme.emojis[2]) uniqueEmojis.add(elm.theme.emojis[2]);
                 });
-        
-                setEmojisArr(Array.from(uniqueEmojis));
 
-                console.log(emojisArr)
+                setEmojisArr(Array.from(uniqueEmojis));
 
                 //   const filteredPalettes = response.data.filter((palette) =>
                 //     palette.colors.some(
@@ -35,12 +33,16 @@ function FilterByEmoji(props) {
     }, []);
 
     return (
-        <div className="bg-bggrey w-full h-20 mt-0 flex justify-center flex-wrap">
-            {emojisArr != [] &&
-                emojisArr.map((elm,index) => {
-                    return <div key={index}>{elm}</div>;
-                })
-            }
+        <div className="bg-bggrey w-full mt-0 p-5 flex justify-center items-center">
+            <div className="max-w-2xl flex justify-center flex-wrap">
+                {emojisArr != [] &&
+                    emojisArr.map((elm, index) => {
+                        return <button key={index} className="btn btn-sm btn-ghost p-0 hover:btn-outline-none">
+                            <div className="m-1">{elm}</div>
+                        </button>
+                    })
+                }
+            </div>
         </div>
     )
 
