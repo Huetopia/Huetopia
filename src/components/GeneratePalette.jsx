@@ -43,15 +43,15 @@ export const GeneratePalette = () => {
 
   return (
     <div
-      className="w-full h-full flex-grow flex  pt-20 bg-home bg-left-top bg-no-repeat bg-cover bg-opacity-20 bg-neutral-50 md:items-center md:pt-0"
+      className="w-full h-full pb-10 flex-grow flex sm:py-20 bg-home bg-left-top bg-no-repeat bg-cover bg-opacity-20 bg-neutral-50 md:items-center md:pt-0"
       
     >
       <div className="max-w-7xl mx-auto px-4 flex flex-col-reverse items-center h-full md:flex-row sm:px-6 lg:px-8 md:h-full">
         <div className="flex flex-col items-center md:items-start justify-center ">
-          <h2 className="text-5xl text-center md:text-left w-full font-bold mb-4 lg:w-3/4 ">
+          <h2 className="text-3xl text-center sm:text-5xl md:text-left w-full font-bold mb-4 lg:w-3/4 ">
             Generate stunning color palettes with a tap.
           </h2>
-          <p className="text-lg text-neutral mb-6 text-center md:text-left">
+          <p className="text-md text-neutral mb-6 text-center sm:text-lg md:text-left">
             Harness the power of AI to find color combinations that inspire your
             next project.
           </p>
@@ -85,7 +85,7 @@ export const GeneratePalette = () => {
             )}
           </form>
         </div>
-        <div className="stack w-2/4 mb-14 mt-10 sm:w-3/5 md:inline-grid lg:w-2/5">
+        <div className="stack w-2/5 mb-14 mt-10 sm:w-3/5 md:inline-grid lg:w-2/5">
           <img src={example1} className="rounded" />
           <img src={example1} className="rounded" />
           <img src={example1} className="rounded" />
