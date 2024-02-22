@@ -40,8 +40,8 @@ export const Navbar = () => {
           </Link>
         </nav>
 
-        <div className="dropdown dropdown-end md:hidden z-50">
-          <div tabIndex={0} role="button" className="btn btn-ghost">
+        <details className="dropdown dropdown-end md:hidden z-50">
+          <summary tabIndex={0} role="button" className="btn btn-ghost">
             <svg
               className="h-8 w-8"
               xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +57,7 @@ export const Navbar = () => {
                 d="M4 6h16M4 12h16m-7 6h7"
               />
             </svg>
-          </div>
+          </summary>
           <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
             <li>
               <NavLink
@@ -92,7 +92,7 @@ export const Navbar = () => {
               </Link>
             </li>
           </ul>
-        </div>
+        </details>
       </div>
     </div>
   );
