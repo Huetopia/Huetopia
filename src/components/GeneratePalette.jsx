@@ -48,7 +48,7 @@ export const GeneratePalette = () => {
     >
       <div className="max-w-7xl mx-auto px-4 flex flex-col-reverse items-center h-full md:flex-row sm:px-6 lg:px-8 md:h-full">
         <div className="flex flex-col items-center md:items-start justify-center ">
-          <h2 className="text-3xl text-center sm:text-5xl md:text-left w-full font-bold mb-4 lg:w-3/4 ">
+          <h2 className="text-3xl text-center md:text-4xl lg:text-5xl md:text-left w-full font-bold mb-4 lg:w-3/4 ">
             Generate stunning color palettes with a tap.
           </h2>
           <p className="text-md text-neutral mb-6 text-center sm:text-lg md:text-left">
