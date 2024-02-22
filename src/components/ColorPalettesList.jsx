@@ -15,12 +15,15 @@ function ColorPalettesList(props) {
       .then((response) => {
         setPalettes(response.data);
 
+        const lowerValue = value.toLowerCase()
+
         const filteredPalettes = response.data.filter(
           (palette) =>
-            palette.theme.input.includes(value) ||
+            palette.theme.input.toLowerCase().includes(lowerValue) ||
             palette.colors.some(
               (color) =>
-                color.description.includes(value) || color.name.includes(value)
+                color.description.toLowerCase().includes(lowerValue) ||
+                color.name.toLowerCase().includes(lowerValue)
             )
         );
 
