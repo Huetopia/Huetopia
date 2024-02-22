@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Color({ colorProp }) {
@@ -9,14 +9,15 @@ function Color({ colorProp }) {
   const copyToClipBoard = (event) => {
     event.preventDefault();
 
-    showToastMessage()
-
     navigator.clipboard.writeText(colorProp.hex);
+    toast.success(`${colorProp.hex} copied to clipboard`, {
+      autoClose:  2000,
+    });
+
   };
 
   const showToastMessage = () => {
-    toast.success(`${colorProp.hex} copied to clipboard`, {
-    });
+    
   };
 
   return (
@@ -63,7 +64,7 @@ function Color({ colorProp }) {
           {colorProp.hex}
         </div>
       </div>
-      <ToastContainer />
+     
       
     </div>
   );

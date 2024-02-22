@@ -2,7 +2,7 @@ import { useParams} from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Color from "./Color";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -73,6 +73,7 @@ export const ColorPaletteDetails = (props) => {
   // submit form and update palette
   const updateHandler = (event) => {
     event.preventDefault();
+    event.stopPropagation()
     console.log("updateHandler");
     console.log(palette);
 
@@ -81,9 +82,11 @@ export const ColorPaletteDetails = (props) => {
      .then((result) => {
       // show success message
       toast.success(`Palette Name updated`, {
+        autoClose:  3000,
       });
      }).catch((err) => {
       toast.error(`Something went wrong: ${err}`, {
+        autoClose:  3000,
       });
       console.log(err);
      });
@@ -174,7 +177,7 @@ export const ColorPaletteDetails = (props) => {
                 return <Color colorProp={color} key={index} />;
               })}
             </div>
-            <ToastContainer />
+            
           </>
         )}
       </div>
