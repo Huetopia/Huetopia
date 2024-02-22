@@ -24,7 +24,7 @@ export default {
       "neutral": "#374151"
     },
     backgroundImage: {
-      'home': "url('./src/assets/bg.png')",
+      'home': "url('/src/assets/bg.png')",
     }
   },
   plugins: [
