@@ -22,7 +22,9 @@ export default {
       "grey": "#828282",
       "drk-grey": "#626262",
       "neutral": "#374151",
-      "white": "#fff"
+      "white": "#fff",
+      "linkedIn": "#0077B5",
+      "github": "#333",
     },
     backgroundImage: {
       'home': "url('/src/assets/bg.png')",

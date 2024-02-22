@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import example1 from "../assets/palette-example-1.png";
 
@@ -86,7 +86,7 @@ export const GeneratePalette = () => {
           </form>
         </div>
         <div className="stack w-2/5 mb-14 mt-10 sm:w-3/5 md:inline-grid lg:w-2/5">
-          <img src={example1} className="rounded" />
+          <Link to="/random"><img src={example1} className="rounded" /></Link>
           <img src={example1} className="rounded" />
           <img src={example1} className="rounded" />
         </div>
