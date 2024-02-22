@@ -15,11 +15,13 @@ function ColorPalettesList(props) {
       .then((response) => {
         setPalettes(response.data);
 
-        const filteredPalettes = response.data.filter((palette) =>
-          palette.colors.some(
-            (color) =>
-              color.description.includes(value) || color.name.includes(value)
-          )
+        const filteredPalettes = response.data.filter(
+          (palette) =>
+            palette.theme.input.includes(value) ||
+            palette.colors.some(
+              (color) =>
+                color.description.includes(value) || color.name.includes(value)
+            )
         );
 
         setFiltered(filteredPalettes);
