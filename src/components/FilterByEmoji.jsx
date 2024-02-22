@@ -2,29 +2,24 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function FilterByEmoji(props) {
-
-    const [palettes, setPalettes] = useState(null);
+    const [emojisArr, setEmojisArr] = useState([])
 
     useEffect(() => {
         axios
             .get("https://huetopia-api.adaptable.app/" + props.url)
             .then((response) => {
-                setPalettes(response.data);
+                const uniqueEmojis = new Set();
 
-                let emojisArr = []
+                response.data.forEach(elm => {
+                  if (elm.theme.emojis[0]) uniqueEmojis.add(elm.theme.emojis[0]);
+                  if (elm.theme.emojis[1]) uniqueEmojis.add(elm.theme.emojis[1]);
+                  if (elm.theme.emojis[2]) uniqueEmojis.add(elm.theme.emojis[2]);
+                });
+        
+                setEmojisArr(Array.from(uniqueEmojis));
 
-                response.data.map((elm) => {
-                    if (elm.theme.emojis[0] && !emojisArr.includes(elm.theme.emojis[0])){
-                        emojisArr.push(elm.theme.emojis[0])
-                    }
-                    if (elm.theme.emojis[1] && !emojisArr.includes(elm.theme.emojis[1])) {
-                        emojisArr.push(elm.theme.emojis[1])
-                    }
-                    if (elm.theme.emojis[2] && !emojisArr.includes(elm.theme.emojis[2])) {
-                        emojisArr.push(elm.theme.emojis[2])
-                    } 
-                })
                 console.log(emojisArr)
+
                 //   const filteredPalettes = response.data.filter((palette) =>
                 //     palette.colors.some(
                 //       (color) =>
@@ -40,16 +35,11 @@ function FilterByEmoji(props) {
     }, []);
 
     return (
-        <div className="bg-bggrey w-full h-20 mt-0 flex justify-center">
-            {palettes === null ? (
-                <div className="w-full flex justify-center">
-                    <span className="loading loading-bars loading-md"></span>
-                </div>
-            ) : (
-                palettes.map((elm) => {
-                    return "";
+        <div className="bg-bggrey w-full h-20 mt-0 flex justify-center flex-wrap">
+            {emojisArr != [] &&
+                emojisArr.map((elm,index) => {
+                    return <div key={index}>{elm}</div>;
                 })
-            )
             }
         </div>
     )
