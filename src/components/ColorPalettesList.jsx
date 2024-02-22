@@ -45,6 +45,9 @@ function ColorPalettesList(props) {
     setFiltered(filteredPalettes);
   }
 
+  function resetEmojis() {
+    setFiltered(palettes)
+  }
 
   return (
     <div className="flex flex-col p-10 max-w-7xl min-h-vh">
@@ -85,7 +88,7 @@ function ColorPalettesList(props) {
         </div>
         <div className="divider my-0"></div>
         {filterMenu &&
-          <FilterByEmoji url={props.url} filterEmoji={filterEmoji} />
+          <FilterByEmoji url={props.url} filterEmoji={filterEmoji} resetEmojis={resetEmojis} />
         }
       </div>
       <div className="flex flex-wrap grid-cols-3 text-neutral ">
