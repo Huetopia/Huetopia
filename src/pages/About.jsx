@@ -4,7 +4,7 @@ import erikImage from "../images/erik.png";
 export const About = () => {
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 flex-grow flex flex-col m-auto w-full">
-      <h1 className="text-grey text-xl font-extrabold my-6">
+      <h1 className="text-grey text-2xl font-bold my-6">
         About this project:
       </h1>{" "}
       <div>
