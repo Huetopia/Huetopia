@@ -97,7 +97,7 @@ export const ColorPaletteDetails = (props) => {
 
   return (
    
-      <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 pt-10 px-4 ">
+      <div className="max-w-7xl sm:px-6 lg:px-8 pt-10 px-4 w-full flex-grow flex flex-col m-auto">
         {palette !== null && (
           <>
             <div className="flex justify-between">
@@ -109,7 +109,7 @@ export const ColorPaletteDetails = (props) => {
                   >{`${palette.theme.emojis[0]} `}</h1>
                   <form ref={formRef} >
                     <input
-                      className="text-2xl font-bold text-neutral capitalize ml-2 pl-2 border border-neutral-300 bg-neutral-50 rounded
+                      className="w-96 text-2xl font-bold text-neutral capitalize ml-2 pl-2 border border-neutral-300 bg-neutral-50 rounded
                       "
                       type="text"
                       value={palette.theme.input}

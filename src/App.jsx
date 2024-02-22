@@ -23,7 +23,8 @@ import { RandomPalette } from "./pages/RandomPalette";
 
 function App() {
   return (
-    <>
+   <div className="flex flex-col min-h-screen">
+
       <Navbar />
       <Routes>
         <Route path="/" element={<GeneratePalette />} />
@@ -43,7 +44,8 @@ function App() {
       </Routes>
       <ToastContainer />
       <Footer />
-    </>
+    
+   </div>
   );
 }
 

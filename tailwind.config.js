@@ -8,7 +8,13 @@ export default {
       },
       minHeight: {
         'vh': '100vh',
+      },
+      minWidth: {
+        'sm': '620px',
+        'md': '768px',
+        'lg': '980px',
       }
+
     },
     
     colors: {
@@ -16,6 +22,9 @@ export default {
       "grey": "#828282",
       "drk-grey": "#626262",
       "neutral": "#374151"
+    },
+    backgroundImage: {
+      'home': "url('/src/assets/bg.png')",
     }
   },
   plugins: [
