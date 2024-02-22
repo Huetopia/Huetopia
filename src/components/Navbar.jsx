@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -7,30 +8,37 @@ export const Navbar = () => {
   return (
     <div className="bg-bggrey">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-        <Link to="/">
+        <Link to="/" className="flex items-center">
+          <img src={logo} alt="" className="h-8 pr-3" />
           <div className="text-2xl font-bold text-neutral">HUETOPIA</div>
         </Link>
 
-        <div className="hidden lg:block ml-0 space-x-4 text-sm">
+        <nav className="hidden lg:block ml-0 space-x-10 text-sm">
           <NavLink
-            className="text-grey font-bold hover:black m-5"
+            className="text-grey font-bold hover:text-drk-grey hover:border-b-2 hover:border-b-drk-grey "
+            activeClassName="text-drk-grey border-b-2 border-b-drk-grey"
+            to="/random"
+          >
+            RANDOM PALETTE
+          </NavLink>
+          <NavLink
+            activeClassName="text-drk-grey border-b-2 border-b-drk-grey"
+            className="text-grey font-bold hover:text-drk-grey hover:border-b-2 hover:border-b-drk-grey "
             to="/favourites"
           >
             FAVOURITES
           </NavLink>
-          <NavLink className="text-grey font-bold hover:black m-5" to="/random">
-            RANDOM PALETTE
-          </NavLink>
           <NavLink
-            className="text-grey font-bold hover:black m-5"
+            activeClassName="text-drk-grey border-b-2 border-b-drk-grey"
+            className="text-grey font-bold hover:text-drk-grey hover:border-b-2 hover:border-b-drk-grey"
             to="/palettes"
           >
             ALL COLORS
           </NavLink>
           <Link to="/">
-            <button className="btn btn-neutral btn-sm m-5">New</button>
+            <button className="btn btn-neutral btn-sm ml-5">New</button>
           </Link>
-        </div>
+        </nav>
         {/* Burger menu button positioned in top-right corner */}
         <div className="flex items-center lg:hidden">
           <button
