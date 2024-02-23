@@ -1,18 +1,23 @@
 import stefanImage from "../images/stefan.png";
 import erikImage from "../images/erik.png";
+import laiaImage from "../images/laia.jpg";
 
 export const About = () => {
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 flex-grow flex flex-col m-auto w-full">
-      <h1 className=" text-2xl font-bold my-6">
-        About this project:
-      </h1>{" "}
+      <h1 className=" text-2xl font-bold my-6">About this project:</h1>{" "}
       <p>
         Huetopia, a React-powered web-app crafted during our Ironhack Web
         Development Bootcamp, unlocks the power of color. Harnessing advanced
         AI, it transforms your words into vibrant color palettes. Unleash your
-        imagination with Huetopia! Explore the codebase on {" "}
-        <a href="https://github.com/Huetopia" className="hover:border-b-2 italic">GitHub</a>.
+        imagination with Huetopia! Explore the codebase on{" "}
+        <a
+          href="https://github.com/Huetopia"
+          className="hover:border-b-2 italic"
+        >
+          GitHub
+        </a>
+        .
       </p>
       <br />
       <div className="font-bold ">Team behind the magic:</div>
@@ -20,7 +25,7 @@ export const About = () => {
         <div className="my-6 flex justify-center">
           <div className="avatar">
             <div className="h-24 md:shrink-0 rounded-full ">
-              <img src="https://avatars.githubusercontent.com/u/129787208?v=4" />
+              <img src={laiaImage} />
             </div>
           </div>
           <div className="flex flex-col items-start  ml-4">
@@ -32,13 +37,18 @@ export const About = () => {
             <div className="flex ">
               <a href="https://github.com/feelikeadoll">
                 {" "}
-                <button className="btn btn-sm bg-github text-white m-3">GitHub</button>
+                <button className="btn btn-sm bg-github text-white m-3">
+                  GitHub
+                </button>
               </a>
               <a
                 className="mr-4"
                 href="https://es.linkedin.com/in/laia-navalon-arxe-763b2353"
               >
-                <button className="btn btn-sm text-white bg-linkedIn  m-3"> LinkedIn</button>
+                <button className="btn btn-sm text-white bg-linkedIn  m-3">
+                  {" "}
+                  LinkedIn
+                </button>
               </a>{" "}
             </div>
           </div>
@@ -57,13 +67,18 @@ export const About = () => {
             <div className="flex ">
               <a href="https://github.com/gummiz">
                 {" "}
-                <button className="btn btn-sm bg-github text-white m-3">GitHub</button>
+                <button className="btn btn-sm bg-github text-white m-3">
+                  GitHub
+                </button>
               </a>
               <a
                 className="mr-4"
                 href="https://www.linkedin.com/in/stefankummerloew/"
               >
-                <button className="btn btn-sm text-white bg-linkedIn m-3"> LinkedIn</button>
+                <button className="btn btn-sm text-white bg-linkedIn m-3">
+                  {" "}
+                  LinkedIn
+                </button>
               </a>{" "}
             </div>
           </div>
@@ -84,10 +99,15 @@ export const About = () => {
             </div>
             <div className="flex ">
               <a href="https://github.com/EazyErik">
-                <button className="btn btn-sm bg-github text-white m-3">GitHub</button>
+                <button className="btn btn-sm bg-github text-white m-3">
+                  GitHub
+                </button>
               </a>
               <a href="https://www.linkedin.com/in/erik-busch-fullstack-development/">
-                <button className="btn btn-sm text-white bg-linkedIn  m-3"> LinkedIn</button>
+                <button className="btn btn-sm text-white bg-linkedIn  m-3">
+                  {" "}
+                  LinkedIn
+                </button>
               </a>{" "}
             </div>
           </div>
