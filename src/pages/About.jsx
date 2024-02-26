@@ -14,6 +14,7 @@ export const About = () => {
         <a
           href="https://github.com/Huetopia"
           className="hover:border-b-2 italic"
+          target="_blank"
         >
           GitHub
         </a>
@@ -35,21 +36,18 @@ export const About = () => {
               theory enthusiast
             </div>
             <div className="flex ">
-              <a href="https://github.com/feelikeadoll">
-                {" "}
+              <a href="https://github.com/feelikeadoll" target="_blank">
                 <button className="btn btn-sm bg-github text-white m-3">
                   GitHub
                 </button>
               </a>
               <a
-                className="mr-4"
-                href="https://es.linkedin.com/in/laia-navalon-arxe-763b2353"
+                href="https://es.linkedin.com/in/laia-navalon-arxe-763b2353" target="_blank"
               >
-                <button className="btn btn-sm text-white bg-linkedIn  m-3">
-                  {" "}
+                <button className="btn btn-sm text-white bg-linkedIn  m-3" >
                   LinkedIn
                 </button>
-              </a>{" "}
+              </a>
             </div>
           </div>
         </div>
@@ -65,21 +63,18 @@ export const About = () => {
 
             <div className="ml-3">UI Designer with a lot of passion for AI</div>
             <div className="flex ">
-              <a href="https://github.com/gummiz">
-                {" "}
+              <a href="https://github.com/gummiz" target="_blank">
                 <button className="btn btn-sm bg-github text-white m-3">
                   GitHub
                 </button>
               </a>
               <a
-                className="mr-4"
-                href="https://www.linkedin.com/in/stefankummerloew/"
+                href="https://www.linkedin.com/in/stefankummerloew/" target="_blank"
               >
                 <button className="btn btn-sm text-white bg-linkedIn m-3">
-                  {" "}
                   LinkedIn
                 </button>
-              </a>{" "}
+              </a>
             </div>
           </div>
         </div>
@@ -98,17 +93,16 @@ export const About = () => {
               single speed bikes
             </div>
             <div className="flex ">
-              <a href="https://github.com/EazyErik">
+              <a href="https://github.com/EazyErik" target="_blank">
                 <button className="btn btn-sm bg-github text-white m-3">
                   GitHub
                 </button>
               </a>
-              <a href="https://www.linkedin.com/in/erik-busch-fullstack-development/">
+              <a href="https://www.linkedin.com/in/erik-busch-fullstack-development/" target="_blank">
                 <button className="btn btn-sm text-white bg-linkedIn  m-3">
-                  {" "}
                   LinkedIn
                 </button>
-              </a>{" "}
+              </a>
             </div>
           </div>
         </div>
