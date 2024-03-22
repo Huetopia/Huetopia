@@ -42,9 +42,10 @@ export const About = () => {
                 </button>
               </a>
               <a
-                href="https://es.linkedin.com/in/laia-navalon-arxe-763b2353" target="_blank"
+                href="https://www.linkedin.com/in/laianavalonarxe/"
+                target="_blank"
               >
-                <button className="btn btn-sm text-white bg-linkedIn  m-3" >
+                <button className="btn btn-sm text-white bg-linkedIn  m-3">
                   LinkedIn
                 </button>
               </a>
@@ -69,7 +70,8 @@ export const About = () => {
                 </button>
               </a>
               <a
-                href="https://www.linkedin.com/in/stefankummerloew/" target="_blank"
+                href="https://www.linkedin.com/in/stefankummerloew/"
+                target="_blank"
               >
                 <button className="btn btn-sm text-white bg-linkedIn m-3">
                   LinkedIn
@@ -98,7 +100,10 @@ export const About = () => {
                   GitHub
                 </button>
               </a>
-              <a href="https://www.linkedin.com/in/erik-busch-fullstack-development/" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/erik-busch-fullstack-development/"
+                target="_blank"
+              >
                 <button className="btn btn-sm text-white bg-linkedIn  m-3">
                   LinkedIn
                 </button>
